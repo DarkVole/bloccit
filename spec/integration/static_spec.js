@@ -8,7 +8,7 @@ describe("routes : static", () => {
   describe("GET /macro", () => {
 
 //#2
-    it("should return status code 200", (done) => {
+    it("should return status code 200 and have the word \'polo\' in the body", (done) => {
 
 //#3
        request.get(base, (err, res, body) => {
@@ -21,4 +21,4 @@ describe("routes : static", () => {
     });
 
   });
-});
+});  // Checking the routes in static.js
