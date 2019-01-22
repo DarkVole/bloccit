@@ -14,5 +14,9 @@ module.exports = {
       })    
       
       
-  }
+  },
+        new(req, res, next){
+      res.render("topics/new");
+    }
+  
 }
