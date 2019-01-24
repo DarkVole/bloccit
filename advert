@@ -1,0 +1,120 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+
+
+<div class="jumbotron text-center">
+  <h1>NPR Advertisment - Ulysses S. Grant </h1>
+  <p>From Pauper to President - a Tribute to the 18th President of the Unitied States</p> 
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Graphics</h3>
+
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ulysses_S._Grant_1870-1880.jpg" class=".img-responsive" alt="wikipedia.com" style="max-width:100%;height:auto; display:block" >
+            <p>Grant as President</p>
+      <p>This image is available fromn the US Library of Congress</p>
+      <p>  </p>
+      
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Battle_of_the_Wilderness.png" class=".img-responsive"alt="wikipedia.com" style="max-width:100%;height:auto; display:block" >
+           <p>Battle of the Wilderness</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/General_Robert_E._Lee_surrenders_at_Appomattox_Court_House_1865.jpg" class=".img-responsive"alt="wikipedia.com" style="max-width:100%;height:auto; display:block" ">
+           <p>Lee surrendering to Grant at Appomattox</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Kalakaua_Grant_state_visit_1874.jpg" class=".img-responsive"alt="wikipedia.com" style="max-width:100%;height:auto; display:block"">
+           <p>King Kalākaua of Hawaii meets President Grant at the White House in 1874</p>
+    </div>
+    <div class="col-sm-8">
+      <h3>Early Life</h3>
+      <p><strong>April 27, 1822 </strong>Grant is born and raised in Ohio by Methodist parents whose lineage in the new world went back several generations.</p>
+      <p>As a youth, he works in his father's tannery and shows an early talent for riding, taming and managing horses</p>
+      <p><strong>1843 </strong> Grant graduates from West Point at the age of 20, 21st out of a class of 39, and becomes a brevet second lieutenant. </p>
+      <p><strong>1846 </strong> After graduating from West Point in 1843, Grant serves with distinction in the Mexican–American War.</p>
+      <p><strong> 1847 - 1854 </strong>Upon his return he marries Julia Dent, and together they had four children. </p>
+      <p><strong>1854 </strong> Grant retires from the Army. Rumors of drunkenness at his assignment in the Northwest, far from Julia, are said to be the reason for the decision. He struggles financially in civilian life, and can be seen selling firewood on street corners.</p>
+            <h3>The Civil War</h3>
+      <p><strong>1861 </strong>When the Civil War begins, he rejoins the the U.S. Army and quickly rises through the ranks. </p>
+      <p><strong>1862 - 1863 </strong> As a general, Grant takes control of Kentucky, most of Tennessee, and wins major battles at Shiloh and then seizes Vicksburg, gaining control of the Mississippi River and dividing the Confederacy. </p>
+      <p><strong>March 1864 </strong>These victories, combined with those in the Chattanooga Campaign, persuaded Abraham Lincoln that Grant was the General best suited to lead the combined Union armies. Grant was promoted to Lieutenant General, a rank previously reserved for George Washington.</p>
+      <p><strong>April 9, 1865 </strong>Grant confronts Robert E. Lee, trapping his army in Lee's defense of Richmond, while coordinating a series of campaigns in other theaters. The Civil War ends.</p>
+      <p><strong>April 14, 1865 </strong>After a cabinet meeting, President Lincoln invites Grant and his wife to Ford's Theater, but Grant declines. Lincoln is assassinated at the theater.</p>
+      <h3>Presidency</h3>
+      <p><strong>1868 </strong>After Lincoln's assassination, Grant became increasingly disillusioned by President Andrew Johnson's approach to Reconstruction, and drifts toward the "Radical" Republicans. He is elected president in 1868. At 46, Grant is the youngest president elected until John K Kennedy 92 years later.</p>
+      <p><strong>1872 </strong>The Democrats and Liberal Republicans united behind Grant's opponent in the presidential election of 1872, but Grant is reelected by a large margin.</p>
+      <h4>Accomplishments as President</h4>
+       <ul>
+        <li>Stabilized the post-war national economy </li>
+        <li>Created the Department of Justice</li>
+        <li>Prosecuted the Ku Klux Klan </li>
+        <li>Signed three civil rights acts into law </li>
+        <li>Apppointed African Americans and Jewish Americans to prominent federal offices</li>
+        <li>Creates the first Civil Service Commission.</li>
+        </li>Grant's Peace Policy with Native Americans was a bold departure for its time.</li>
+        <li>In foreign policy, Grant sought to increase trade and influence while remaining at peace with the world. With Secretary of State Hamilton Fish, he successfully resolved the Alabama claims with Great Britain.</li>
+        <li>Grant and Fish negotiated a peaceful resolution with Spain over the Virginius Affair.</li>
+        <li>Congress rejected Grant's initiative to annex the Dominican Republic, creating a rift among Republicans.</li>
+        <li>In national affairs, Grant's administration implemented a gold standard and sought to strengthen the dollar.</li>
+        <li>Grant's immediate response to the Panic of 1873 failed to halt a severe industrial depression that produced high unemployment, deflation, and bankruptcies. </li>
+      </ul>
+        <p>Generally regarded as personally honest, Grant nonetheless faced accusations of corruption within his administration. </p>
+      <h3>Post Presidency</h3>
+      <p><strong>1877 </strong> Grant embarks on a two-and-a-half-year world tour that captured favorable global attention for him and the United States.</p>
+      <p><strong>1880 </strong>Grant is unsuccessful in obtaining the Republican presidential nomination for a third term. </p>
+      <p> <strong>1884 </strong>Facing severe investment reversals and dying of throat cancer, he writes his memoirs, which prove to be a major critical and financial success. </p>
+      <p><strong>April 23, 1885 </strong> Grant dies a few days after finishing his memoirs at the age of 63, prompting an outpouring in support of national unity.</p>
+
+              </div>
+              <div class="col-sm-12">
+            <blockquote>
+  <p style="text-align:center;"><i>... I try to judge fairly and honestly and it became patent in my mind early in the rebellion that the North and South could never live at peace with each other except as one nation, and that without slavery<i></p>
+  <footer> Ulysses S. Grant in <cite title="Source Title">Letter to Elihu Washburne</cite></footer>
+</blockquote>
+    
+    <a href="https://imgur.com/zuBteaG"><img src="https://i.imgur.com/zuBteaG.jpg" class=".img-responsive; img-circle" alt="Kohls.com" style="max-width:10%;height:auto; display:block" title="source: imgur.com" /></a>
+    
+
+           <p>Webpage developed by Kevin Kohls</p>
+   
+           <div class="row">
+    <div class="col-xs-3">
+      <button id="Hopium" class="btn btn-block btn-primary text-center" >Buy Addicted to Hopium <i class="fab fa-amazon"></i></button>
+    </div>
+    <div class="col-xs-3">
+      <button id="LinkedIn" class="btn btn-block btn-info">LinkedIn Profile <i class="fab fa-linkedin"></i></button>
+    </div>
+    <div class="col-xs-3">
+      <button id="Facebook"class="btn btn-block btn-info">Facebook <i class="fab fa-facebook"></i></button>
+    </div>
+        <div class="col-xs-3">
+      <button id="Kohls" class="btn btn-block btn-info">Website <i class="fab fa-kickstarter-k"></i></button>
+    
+<h1>    </h1>
+
+      
+    </div>
+  </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("Hopium").onclick = function () {
+    location.href = "https://goo.gl/GP2wzt";
+          };
+          
+    document.getElementById("LinkedIn").onclick = function () {
+    location.href = "https://www.linkedin.com/in/kevinakohls/";
+          };
+          
+        document.getElementById("Facebook").onclick = function () {
+    location.href = "https://www.facebook.com/profile.php?id=100015010785068";
+          };
+            document.getElementById("Kohls").onclick = function () {
+    location.href = "http://kohls-consulting.weebly.com/";
+          };      
+
+</script>
