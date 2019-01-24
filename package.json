@@ -10,11 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "body-parser": "^1.18.2",
     "bootstrap": "^4.2.1",
->>>>>>> Stashed changes
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.4",
