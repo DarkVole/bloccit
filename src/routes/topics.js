@@ -11,6 +11,5 @@ router.post("/topics/:id/destroy", topicController.destroy);
 router.get("/topics/:id/edit", topicController.edit);
 router.post("/topics/:id/update", topicController.update);
 router.get("/topics/advertisment", topicController.advertisment);
->>>>>>> Stashed changes
 
 module.exports = router;

@@ -27,26 +27,18 @@ describe("routes : topics", () => {
 
     });
 
-<<<<<<< Updated upstream
-  describe("GET /topics", () => {
-
-       request.get(base, (err, res, body) => {
-=======
    describe("GET /topics", () => {
         it("should return a status code 200 and all topics", (done) => {
        request.get(base, (err, res, body) => {
 console.log(res.statusCode);
->>>>>>> Stashed changes
          expect(res.statusCode).toBe(200);
          expect(err).toBeNull();
          expect(body).toContain("Topics");
          expect(body).toContain("JS Frameworks");
          done();
        });
-<<<<<<< Updated upstream
-=======
      });  
-       }); 
+    }); 
    
     describe("GET /topics/new", () => {
 
@@ -154,7 +146,6 @@ console.log(res.statusCode);
          expect(body).toContain("JS Frameworks");
          done();
        });
->>>>>>> Stashed changes
      });
    });
 

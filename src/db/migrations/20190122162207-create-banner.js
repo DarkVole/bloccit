@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream:src/db/migrations/20190122162207-create-banner.js
+
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -37,7 +37,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Banners');
   }
-=======
+/* =======
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -76,5 +76,5 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Banners');
   }
->>>>>>> Stashed changes:src/db/migrations/20190121011102-create-banner.js
+>>>>>>> Stashed changes:src/db/migrations/20190121011102-create-banner.js */
 };

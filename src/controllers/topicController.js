@@ -14,9 +14,6 @@ module.exports = {
       })    
       
       
-<<<<<<< Updated upstream
-  }
-=======
   },
     new(req, res, next){
       res.render("topics/new");
@@ -88,5 +85,4 @@ module.exports = {
        }
      });
    },     
->>>>>>> Stashed changes
 }
