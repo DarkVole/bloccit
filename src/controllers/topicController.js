@@ -82,7 +82,9 @@ module.exports = {
    },    
     
      advertisement(req, res, next){
+    topicQueries.getTopic(req.params.id, (err, topic) => {
       res.render("topics/advertisement", {title: "Diet Mountain Dew advertisement"});
+         });
     }
    
 }
