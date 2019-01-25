@@ -79,5 +79,10 @@ module.exports = {
          res.redirect(`/topics/${topic.id}`);
        }
      });
-   }    
+   },    
+    
+     advertisement(req, res, next){
+      res.render("topics/advertisement", {title: "Diet Mountain Dew advertisement"});
+    }
+   
 }

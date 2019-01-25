@@ -165,5 +165,17 @@ describe("routes : topics", () => {
      });
 
    });
+    
+    describe("GET /topics/advertisement", () => {
+
+    it("should render an advertisement page", (done) => {
+      request.get(`${base}new`, (err, res, body) => {
+        expect(err).toBeNull();
+        expect(body).toContain("Advertisement");
+        done();
+      });
+    });
+
+  })
 });
 
