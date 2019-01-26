@@ -166,12 +166,12 @@ describe("routes : topics", () => {
 
    });
     
-    describe("GET /topics/advertisement", () => {
+    describe("GET /topics/advert", () => {
 
-    it("should render an advertisement page", (done) => {
+    it("should render an advert page", (done) => {
       request.get(`${base}new`, (err, res, body) => {
         expect(err).toBeNull();
-        expect(body).toContain("Advertisement");
+        expect(body).toContain("advert");
         done();
       });
     });
