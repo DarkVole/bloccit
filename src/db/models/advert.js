@@ -1,24 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var advert = sequelize.define('advert', {
-    source: DataTypes.STRING,
-   description: DataTypes.STRING,
-   topicId: {
-     type: DataTypes.INTEGER,
-     onDelete: "CASCADE",
-     references: {
-       model: "Topics",
-       key: "id",
-       as: "topicId",
-     }
-   }
+  var Advert = sequelize.define('Advert', {
+    title: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {});
-  advert.associate = function(models) {
+  Advert.associate = function(models) {
     // associations can be defined here
-    advert.belongsTo(models.Topic, {
-       foreignKey: "topicId",
-       onDelete: "CASCADE",
-     });
+     Advert.hasMany(models.Banner, {
+     foreignKey: "avertID",
+     as: "banners",
+   });    
   };
-  return advert;
+  return Advert;
 };
