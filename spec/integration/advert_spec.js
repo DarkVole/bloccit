@@ -13,8 +13,9 @@ describe("routes : advert", () => {
        request.get(base, (err, res, body) => {
 
          expect(res.statusCode).toBe(200);
+         console.log(res.statusCode);
          expect(err).toBeNull();
-         expect(body).toContain("Advert");
+         expect(body).toContain("advert");
          done();
        });
      });  
