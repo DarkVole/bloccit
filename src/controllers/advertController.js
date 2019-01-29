@@ -3,5 +3,4 @@ module.exports = {
   res.render("/advert", {title: "Advertisement"});
   }
     
-
 }
