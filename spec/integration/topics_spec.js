@@ -27,11 +27,11 @@ describe("routes : topics", () => {
 
     });
 
-   describe("GET /topics", () => {
-        it("should return a status code 200 and all topics", (done) => {
-       request.get(base, (err, res, body) => {
+    describe("GET /topics", () => {
+        it("should return a status code 200 and all       topics", (done) => {
+        request.get(base, (err, res, body) => {
 
-         expect(res.statusCode).toBe(200);
+        expect(res.statusCode).toBe(200);
          expect(err).toBeNull();
          expect(body).toContain("Topics");
          expect(body).toContain("JS Frameworks");
@@ -166,16 +166,5 @@ describe("routes : topics", () => {
 
    });
     
-    describe("GET /topics/advert", () => {
-
-    it("should render an advert page", (done) => {
-      request.get(`${base}/advert`, (err, res, body) => {
-        expect(err).toBeNull();
-        expect(body).toContain("advert");
-        done();
-      });
-    });
-
-  })
 });
 
