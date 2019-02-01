@@ -4,9 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.STRING
   }, {});
-  Advert.associate = function(models) {
-    // associations can be defined here
-  
-  };
+
   return Advert;
 };

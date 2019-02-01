@@ -12,4 +12,6 @@ router.get("/topics/:id/edit", topicController.edit);
 router.post("/topics/:id/update", topicController.update);
 //router.get("topics/:id/advert", topicController.advert);
 
+
+
 module.exports = router;

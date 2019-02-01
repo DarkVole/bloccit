@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Advertisement</h1>
-<h2><blockquote class="imgur-embed-pub" lang="en" data-id="a/Sdt667O"><a href="//imgur.com/Sdt667O"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>Advertisement</h2>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
 
+      <h1>Advertisements</h1>
 
-</body>
+      <ul class="list-group">
+<!-- #1 -->
+        <% adverts.forEach((advert) => { %>
+<!-- #2 -->
+          <li class="list-group-item">
+            <a href="/adverts/<%= advert.id %>"> <%= advert.title %> </a>
+          </li>
+        <% }) %>
+      </ul>
+
+    </main>
+  </body>
 </html>
