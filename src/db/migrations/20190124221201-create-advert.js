@@ -18,7 +18,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+     title: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+     description: {
+        allowNull: false,
+        type: Sequelize.STRING
       }
+        
     });
   },
   down: (queryInterface, Sequelize) => {
