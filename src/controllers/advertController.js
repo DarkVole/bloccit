@@ -4,7 +4,7 @@ module.exports = {
   index(req, res, next){
 
         advertQueries.getAllAdverts((err, adverts) => {
-
+console.log(err);
 //#3
         if(err){
           res.redirect(500, "static/index");
