@@ -1,5 +1,5 @@
 const advertQueries = require("../db/queries.adverts.js");
-console.log("Got to AdvertController")
+// console.log("Got to AdvertController")
 module.exports = {
   index(req, res, next){
 
@@ -67,7 +67,7 @@ console.log(err);
      });
    },    
     
-   update(req, res, next){
+    update(req, res, next){
 
 //#1
      advertQueries.updateAdvert(req.params.id, req.body, (err, advert) => {
