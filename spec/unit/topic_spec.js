@@ -1,6 +1,5 @@
 const sequelize = require("../../src/db/models/index").sequelize;
-
-const Topic = require("../../src/db/models").Post;
+const Topic = require("../../src/db/models").Topic;
 
 describe("Post", () => {
 
@@ -12,15 +11,15 @@ describe("Post", () => {
 
 //#2
       Topic.create({
-        title: "Expeditions to Alpha Centauri",
-        description: "A compilation of reports from recent visits to the star system."
+        title: "Expeditions Michigan",
+        description: "A tour of Michigan."
       })
       .then((topic) => {
         this.topic = topic;
 //#3
         Post.create({
-          title: "My first visit to Proxima Centauri b",
-          body: "I saw some rocks.",
+          title: "My first visit to Detroit",
+          body: "I saw some trees.",
 //#4
           topicId: this.topic.id
         })
@@ -34,29 +33,32 @@ describe("Post", () => {
         done();
       });
     });
+
   });
 });
 
-describe("GET /topics/post", () => {
-      it("should create a new post", (done) => {
+   describe("createTopics()", () => {
 
-//#1
-        request.get(base,
+     it("should validate a topic has been create", (done) => {
 
-//#2
-          (err, res, body) => {
-            Topic.findOne({where: {title: "My first visit to Proxima Centauri b"}})
-            .then((post) => {
-              expect(post.title).toBe("My first visit to Proxima Centauri b");
-              expect(post.description).toBe("I saw some rocks.");
-              done();
-            })
-            .catch((err) => {
-              console.log(err);
-              done();
-            });
-          
-                     });
-      });
+       request.topic()
+       .then((topic) => {
+         expect(topic.title).toBe("Expeditions Michigan");
+         done();
+       });
+     });
+   }); 
 
-});
+   describe("getPosts()", () => {
+
+     it("should return the associated Post", (done) => {
+
+       this.topic.post()
+       .then((associatedPosts) => {
+         expect(associatedPosts.title).toBe("My first visit to Detroit");
+         done();
+       });
+     });
+   });  
+
+ 
