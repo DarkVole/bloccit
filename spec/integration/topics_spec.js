@@ -27,7 +27,7 @@ describe("routes : topics", () => {
 
     });
 
-   describe("GET /topics", () => {
+    describe("GET /topics", () => {
         it("should return a status code 200 and all topics", (done) => {
        request.get(base, (err, res, body) => {
 
