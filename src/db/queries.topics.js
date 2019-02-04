@@ -7,7 +7,7 @@ module.exports = {
   getAllTopics(callback){
     return Topic.all()
 
-//#2
+
     .then((topics) => {
       callback(null, topics);
     })
@@ -28,11 +28,8 @@ module.exports = {
       })
     },
   getTopic(id, callback){
-     return Topic.findById(id)
-//#2
     return Topic.findById(id, {
 
-//#3
       include: [{
         model: Post,
         as: "posts"
@@ -75,5 +72,16 @@ module.exports = {
          callback(err);
        });
      });
+   },
+  deletePost(id, callback){
+     return Post.destroy({
+       where: { id }
+     })
+     .then((deletedRecordsCount) => {
+       callback(null, deletedRecordsCount);
+     })
+     .catch((err) => {
+       callback(err);
+     })
    }    
 }
