@@ -12,15 +12,15 @@ describe("Flair", () => {
 
 
       Topic.create({
-        name: "Generic Topic",
-        description: "Generic Topic Description"
+        title: "Expeditions to Alpha Centauri",
+        description: "A compilation of reports from recent visits to the star system."
       })
       .then((topic) => {
         this.topic = topic;
 
         Flair.create({
-          name: "Flair Name - Test",
-          color: "Green",
+          name: "My first visit to Proxima Centauri b",
+          color: "I saw some rocks.",
 
           topicId: this.topic.id
         })
@@ -38,18 +38,18 @@ describe("Flair", () => {
   });
   describe("#create()", () => {
 
-     it("should create a flair object with a name, color, and assigned topic", (done) => {
+     it("should create a post object with a title, body, and assigned topic", (done) => {
 //#1
        Flair.create({
-         name: "Flair Name - Test",
-         color: "Green",
+         name: "Pros of Cryosleep during the long journey",
+         color: "1. Not having to answer the 'are we there yet?' question.",
          topicId: this.topic.id
        })
-       .then((flair) => {
+       .then((post) => {
 
 //#2
-         expect(flair.name).toBe("Pros of Cryosleep during the long journey");
-         expect(flair.color).toBe("1. Not having to answer the 'are we there yet?' question.");
+         expect(flair.title).toBe("Pros of Cryosleep during the long journey");
+         expect(post.message).toBe("1. Not having to answer the 'are we there yet?' question.");
          done();
 
        })
@@ -60,11 +60,11 @@ describe("Flair", () => {
      });
 
       
-     it("should not create a flair with missing name, color, or assigned topic", (done) => {
+     it("should not create a post with missing title, body, or assigned topic", (done) => {
      Flair.create({
-       name: "Pros of Cryosleep during the long journey"
+       title: "Pros of Cryosleep during the long journey"
      })
-     .then((flair) => {
+     .then((post) => {
 
       // the code in this block will not be evaluated since the validation error
       // will skip it. Instead, we'll catch the error in the catch block below
@@ -75,7 +75,7 @@ describe("Flair", () => {
      })
      .catch((err) => {
 
-       expect(err.message).toContain("Flair.color cannot be null");
+       expect(err.message).toContain("Flair.name cannot be null");
        expect(err.message).toContain("Flair.topicId cannot be null");
        done();
 
@@ -85,11 +85,11 @@ describe("Flair", () => {
     
   describe("#setTopic()", () => {
 
-     it("should associate a topic and a flair together", (done) => {
+     it("should associate a topic and a post together", (done) => {
 
 // #1
        Topic.create({
-         name: "Challenges of interstellar travel",
+         title: "Challenges of interstellar travel",
          description: "1. The Wi-Fi is terrible"
        })
        .then((newTopic) => {
@@ -115,7 +115,7 @@ describe("Flair", () => {
 
        this.flair.getTopic()
        .then((associatedTopic) => {
-         expect(associatedTopic.name).toBe("Generic Topic");
+         expect(associatedTopic.title).toBe("Expeditions to Alpha Centauri");
          done();
        });
 
@@ -123,3 +123,4 @@ describe("Flair", () => {
 
    });
 });
+
