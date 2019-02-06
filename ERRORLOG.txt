@@ -1,4 +1,3 @@
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm test
 
 > bloccit@1.0.0 test /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
 > export NODE_ENV=test && jasmine
@@ -105,5 +104,5 @@ Failures:
         at processImmediate [as _immediateCallback] (timers.js:729:5)
 
 30 specs, 2 failures
-Finished in 5.724 seconds
+Finished in 5.525 seconds
 npm ERR! Test failed.  See above for more details.
