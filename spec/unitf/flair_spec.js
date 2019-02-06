@@ -38,18 +38,18 @@ describe("Flair", () => {
   });
   describe("#create()", () => {
 
-     it("should create a post object with a title, body, and assigned topic", (done) => {
+     it("should create a post object with a name, body, and assigned topic", (done) => {
 //#1
        Flair.create({
          name: "Pros of Cryosleep during the long journey",
          color: "1. Not having to answer the 'are we there yet?' question.",
          topicId: this.topic.id
        })
-       .then((post) => {
+       .then((flair) => {
 
 //#2
-         expect(flair.title).toBe("Pros of Cryosleep during the long journey");
-         expect(post.message).toBe("1. Not having to answer the 'are we there yet?' question.");
+         expect(flair.name).toBe("Pros of Cryosleep during the long journey");
+         expect(flair.color).toBe("1. Not having to answer the 'are we there yet?' question.");
          done();
 
        })
@@ -60,9 +60,9 @@ describe("Flair", () => {
      });
 
       
-     it("should not create a post with missing title, body, or assigned topic", (done) => {
+     it("should not create a post with missing name, body, or assigned topic", (done) => {
      Flair.create({
-       title: "Pros of Cryosleep during the long journey"
+       name: "Pros of Cryosleep during the long journey"
      })
      .then((post) => {
 
@@ -75,7 +75,7 @@ describe("Flair", () => {
      })
      .catch((err) => {
 
-       expect(err.message).toContain("Flair.name cannot be null");
+       expect(err.message).toContain("Flair.color cannot be null");
        expect(err.message).toContain("Flair.topicId cannot be null");
        done();
 
@@ -89,7 +89,7 @@ describe("Flair", () => {
 
 // #1
        Topic.create({
-         title: "Challenges of interstellar travel",
+         name: "Challenges of interstellar travel",
          description: "1. The Wi-Fi is terrible"
        })
        .then((newTopic) => {
