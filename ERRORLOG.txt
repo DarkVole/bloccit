@@ -105,5 +105,6 @@ Failures:
         at processImmediate [as _immediateCallback] (timers.js:729:5)
 
 30 specs, 2 failures
-Finished in 5.17 seconds
+Finished in 5.177 seconds
 npm ERR! Test failed.  See above for more details.
+kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$

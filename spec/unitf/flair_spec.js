@@ -89,11 +89,11 @@ describe("Flair", () => {
 
 // #1
        Topic.create({
-         name: "Challenges of interstellar travel",
+         title: "Challenges of interstellar travel",
          description: "1. The Wi-Fi is terrible"
        })
        .then((newTopic) => {
-
+       
 // #2
          expect(this.flair.topicId).toBe(this.topic.id);
 // #3
