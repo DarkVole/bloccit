@@ -99,8 +99,6 @@ describe("routes : flairs", () => {
      it("should render a view with the selected flair", (done) => {
        request.get(`${base}/${this.topic.id}/flairs/${this.flair.id}`, (err, res, body) => {
          expect(err).toBeNull();
-         //expect(body).toContain("Snowball Fighting");
-           console.log(body & "These are the droids")
          done();
        });
      });

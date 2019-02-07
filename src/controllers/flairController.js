@@ -12,7 +12,6 @@ module.exports = {
        color: req.body.color,
        topicId: req.params.topicId
      };
-      // console.log("New Flair: " + newFlair)
      flairQueries.addFlair(newFlair, (err, flair) => {
        if(err){
          res.redirect(500, "/flairs/new");
@@ -63,11 +62,9 @@ module.exports = {
    },
     
    update(req, res, next){
-       console.log("Got to flair update")
-     flairQueries.updatePost(req.params.id, req.body, (err, flair) => {
-
+     flairQueries.updateFlair(req.params.id, req.body, (err, flair) => {
        if(err || flair == null){
-        console.log(flair);
+
          res.redirect(404, `/topics/${req.params.topicId}/flairs/${req.params.id}/edit`);
        } else {
          res.redirect(`/topics/${req.params.topicId}/flairs/${req.params.id}`);
