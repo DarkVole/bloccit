@@ -51,17 +51,6 @@ describe("routes : posts", () => {
 
   });
     
-  /*describe("GET /topics/:topicId/posts/:id", () => {
-
-     it("should render a view with the selected post", (done) => {
-       request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-         expect(err).toBeNull();
-         expect(body).toContain("Snowball Fighting");
-         done();
-       });
-     });
-
-   });*/
     
   describe("POST /topics/:topicId/posts/create", () => {
 
@@ -91,6 +80,36 @@ describe("routes : posts", () => {
         }
       );
     });
+   
+      // Add new test here
+     it("should not create a new post that fails validations", (done) => {
+       const options = {
+         url: `${base}/${this.topic.id}/posts/create`,
+         form: {
+
+//#1
+           title: "a",
+           body: "b"
+         }
+       };
+
+       request.post(options,
+         (err, res, body) => {
+
+//#2
+           Post.findOne({where: {title: "a"}})
+           .then((post) => {
+               expect(post).toBeNull();
+               done();
+           })
+           .catch((err) => {
+             console.log(err);
+             done();
+           });
+         }
+       );
+     });      
+    
 
  });
     
