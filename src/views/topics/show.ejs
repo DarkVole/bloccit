@@ -10,7 +10,7 @@
       <h1><%= topic.title %></h1>
         <a href="/topics/<%= topic.id %>/edit" class="btn btn-warning">Edit</a> 
         <a href="/topics/<%= topic.id %>/posts/new" class="btn btn-success">New Post</a>
-        <a href="/topics/<%= topic.id %>/flairs/new" class="btn btn-info">New </a>
+        <a href="/topics/<%= topic.id %>/flairs/new" class="btn btn-info">New Flair</a>
         
      <form style="display:initial" action="/topics/<%= topic.id %>/destroy" method="post">
        <button type="submit" class="btn btn-danger">Delete</button>
@@ -19,6 +19,8 @@
          <hr>
 
    <h1>Posts</h1>
+
+
 
    <ul class="list-group">
      <% topic && topic.posts &&  topic.posts.forEach((post) => { %>
@@ -30,6 +32,7 @@
    <hr>
 
    <h1>Flairs</h1>
+
 
    <ul class="list-group">
      <% topic && topic.flairs && topic.flairs.forEach((flair) => { %>
