@@ -11,6 +11,7 @@
      },
 
      signIn(req, res, next) {
+         res.render("users/sign_in");
          passport.authenticate("local")(req, res, function () {
              if (!req.user) {
                  req.flash("notice", "Sign in failed. Please try again.")
@@ -30,6 +31,7 @@
 
      create(req, res, next) {
          //#1
+
          let newUser = {
              email: req.body.email,
              password: req.body.password,
