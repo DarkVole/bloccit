@@ -11,7 +11,6 @@
    },
  
      signIn(req, res, next) {
-         res.render("users/sign_in");
          passport.authenticate("local")(req, res, function () {
              if (!req.user) {
                  req.flash("notice", "Sign in failed. Please try again.")
