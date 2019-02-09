@@ -47,7 +47,7 @@ module.exports = {
     }
   } ,
     
-  validateUsers(req, res, next) {
+   validateUsers(req, res, next) {
      if(req.method === "POST") {
 
 // #1
@@ -64,5 +64,5 @@ module.exports = {
      } else {
        return next();
      }
-   }    
+   }   
 }

@@ -6,7 +6,10 @@
          res.render("users/sign_up");
      },
 
-
+   signInForm(req, res, next){
+     res.render("users/sign_in");
+   },
+ 
      signIn(req, res, next) {
          res.render("users/sign_in");
          passport.authenticate("local")(req, res, function () {
