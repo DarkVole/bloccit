@@ -17,7 +17,7 @@
                  res.redirect("/users/sign_in");
              } else {
                  req.flash("notice", "You've successfully signed in!");
-                 res.redirect("/topics");
+                 res.redirect("/");
              }
          })
      },
