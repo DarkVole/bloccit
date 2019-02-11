@@ -10,6 +10,7 @@ router.get("/topics/:id", topicController.show);
 router.post("/topics/:id/destroy", topicController.destroy);
 router.get("/topics/:id/edit", topicController.edit);
 router.post("/topics/create", validation.validateTopics, topicController.create);
-router.post("/topics/update", validation.validateTopics, topicController.update);
+router.post("/topics/update", topicController.update);
+//router.post("/topics/update", validation.validateTopics, topicController.update);
 
 module.exports = router;
