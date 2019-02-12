@@ -1,0 +1,14 @@
+#### Assignment
+For this assignment, read more about the different strategies available for authenticating with Passport. Pick a strategy to study and write a high-level explanation of how it works. This explanation does not need to be technical.
+
+##### Passport-LinkedIn #####
+
+One of the greatest needs for security is in the business world, and one of the most popular business social media sites is _LinkedIn_. _LinkedIn_ is known for having a focus group that sticks to business topics and rarely wanders into other areas covered by _Facebook_, _Twitter_, etc.
+
+Getting credentials for _LinkedIn_ is fairly easy, but all that really does it give you access to the social media part of Linked. For the user, it has given the business user a way of securing a secure login without having to remember another set of passwords. There is little in _LinkedIn_ data that would be damaging to members of the _LinkedIn_ community or the public. I doubt if you could find any porn or embarrassing high school pictures.
+
+
+One module listed in the link page provided is **Passport-LinkedIn**. It is a passport strategy for authenticating with LinkedIn using the _OAuth 1.0a_ API. This API can be obtained via approval from _LinkedIn_. The **Passport-LinkedIn** module lets you authenticate your _Node.js_ applications by using your _LinkedIn_ credentials.  This provides an easy and unobtrusive integration into any application or framework that supports Connect-style middleware, including _Express_.
+
+
+
