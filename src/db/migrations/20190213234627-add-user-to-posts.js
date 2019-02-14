@@ -1,30 +1,24 @@
-'use strict';
+ "use strict";
 
-module.exports = {
-    up: (queryInterface, Sequelize) => {
-        return queryInterface.addColumn(
-            "Posts",
-            "userId", {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: "Users",
-                    key: "id",
-                    as: "userId"
-                },
-            }
-        );
-    },
+ module.exports = {
+     up: (queryInterface, Sequelize) => {
 
-    down: (queryInterface, Sequelize) => {
-        /*
-          Add reverting commands here.
-          Return a promise to correctly handle asynchronicity.
+         return queryInterface.addColumn(
+             "Posts",
+             "userId", {
+                 type: Sequelize.INTEGER,
+                 onDelete: "CASCADE",
+                 allowNull: false,
+                 references: {
+                     model: "Users",
+                     key: "id",
+                     as: "userId"
+                 },
+             }
+         );
+     },
 
-          Example:
-          return queryInterface.dropTable('users');
-        */
-        return queryInterface.removeColumn("Posts", "userId");
-    }
-};
+     down: (queryInterface, Sequelize) => {
+         return queryInterface.removeColumn("Posts", "userId");
+     }
+ };
