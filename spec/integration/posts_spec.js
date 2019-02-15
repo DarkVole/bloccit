@@ -80,6 +80,7 @@ describe("routes : posts", () => {
                             }
                         })
                         .then((post) => {
+                            // console.log("============> " + post);
                             expect(post).not.toBeNull();
                             expect(post.title).toBe("Watching snow melt");
                             expect(post.body).toBe("Without a doubt my favoriting things to do besides watching paint dry!");

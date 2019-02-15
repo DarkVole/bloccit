@@ -6,10 +6,10 @@
          res.render("users/sign_up");
      },
 
-   signInForm(req, res, next){
-     res.render("users/sign_in");
-   },
- 
+     signInForm(req, res, next) {
+         res.render("users/sign_in");
+     },
+
      signIn(req, res, next) {
          passport.authenticate("local")(req, res, function () {
              if (!req.user) {
@@ -38,6 +38,7 @@
          };
          // #2
          userQueries.createUser(newUser, (err, user) => {
+             console.log(err);
              if (err) {
                  req.flash("error", err);
                  res.redirect("/users/sign_in");
