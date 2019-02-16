@@ -60,7 +60,6 @@ describe("routes : posts", () => {
 
     });
 
-
     describe("POST /topics/:topicId/posts/create", () => {
 
         it("should create a new post and redirect", (done) => {
