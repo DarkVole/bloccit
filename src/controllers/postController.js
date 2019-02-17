@@ -47,8 +47,10 @@ module.exports = {
 
     edit(req, res, next) {
         postQueries.getPost(req.params.id, (err, post) => {
+            console.log("Entered post controller edit")
             if (err || post == null) {
                 res.redirect(404, "/");
+                console.log("Failed at null check")
             } else {
                 const authorized = new Authorizer(req.user).edit();
 
@@ -67,7 +69,6 @@ module.exports = {
     show(req, res, next) {
 
         postQueries.getPost(req.params.id, (err, post) => {
-            console.log("res====> " + res );
             if (err || post == null) {
                 res.redirect(404, "/");
             } else {

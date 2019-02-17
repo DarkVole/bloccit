@@ -13,17 +13,17 @@
             <%= post.title %>
         </h1>
 
-        <% if(currentUser) { %>
+        <% if(currentUser && (currentUser.id === post.userId || currentUser.isAdmin())) { %>
 
 
         <a href="/topics/<%= post.topicId %>/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
 
-        <% if(currentUser.isAdmin()) { %>
+
 
         <form style="display:initial" action="/topics/<%= post.topicId %>/posts/<%= post.id %>/destroy" method="post">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
-        <% } %>
+
         <% } %>
         <p>
             <%= post.body %>

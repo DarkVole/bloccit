@@ -19,7 +19,8 @@ describe("routes : posts", () => {
         }).then((res) => {
             User.create({
                     email: "starman@tesla.com",
-                    password: "Trekkie4lyfe"
+                    password: "Trekkie4lyfe",
+                    userId: 0
                 })
                 .then((user) => {
                     this.user = user;
@@ -48,6 +49,35 @@ describe("routes : posts", () => {
 
     });
 
+
+    describe("GET /topics/:topicId/posts/:id", () => {
+
+        it("should render a view with the selected post", (done) => {
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Snowman Building Competition");
+                done();
+            });
+        });
+
+    });
+});
+
+describe(" member performing CRUD (Create and New) actions for Post", () => {
+
+    beforeEach((done) => {
+        request.get({
+                url: "http://localhost:3000/auth/fake",
+                form: {
+                    role: "member"
+                }
+            },
+            (err, res, body) => {
+                done();
+            }
+        );
+    });
+
     describe("GET /topics/:topicId/posts/new", () => {
 
         it("should render a new post form", (done) => {
@@ -59,6 +89,7 @@ describe("routes : posts", () => {
         });
 
     });
+    
 
     describe("POST /topics/:topicId/posts/create", () => {
 
@@ -67,7 +98,8 @@ describe("routes : posts", () => {
                 url: `${base}/${this.topic.id}/posts/create`,
                 form: {
                     title: "Watching snow melt",
-                    body: "Without a doubt my favoriting things to do besides watching paint dry!"
+                    body: "Without a doubt my favoriting things to do besides watching paint dry!",
+                    userId: 000
                 }
             };
             request.post(options,
@@ -75,7 +107,7 @@ describe("routes : posts", () => {
 
                     Post.findOne({
                             where: {
-                                title: "Watching snow melt"
+                                userId: 000
                             }
                         })
                         .then((post) => {
@@ -83,6 +115,7 @@ describe("routes : posts", () => {
                             expect(post).not.toBeNull();
                             expect(post.title).toBe("Watching snow melt");
                             expect(post.body).toBe("Without a doubt my favoriting things to do besides watching paint dry!");
+                            expect(post.userId).toBe(0);
                             expect(post.topicId).not.toBeNull();
                             done();
                         })
@@ -130,11 +163,30 @@ describe("routes : posts", () => {
 
     });
 
-    describe("GET /topics/:topicId/posts/:id", () => {
+})
 
-        it("should render a view with the selected post", (done) => {
-            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+
+describe("owner performing CRUD actions for Post", () => {
+
+    beforeEach((done) => {
+        request.get({
+                url: "http://localhost:3000/auth/fake",
+                form: {
+                    id: this.user.id
+                }
+            },
+            (err, res, body) => {
+                done();
+            }
+        );
+    });
+
+    describe("GET /topics/:topicId/posts/:id/edit", () => {
+
+        it("should render a view with an edit post form", (done) => {
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
                 expect(err).toBeNull();
+                expect(body).toContain("Edit Post");
                 expect(body).toContain("Snowman Building Competition");
                 done();
             });
@@ -160,19 +212,6 @@ describe("routes : posts", () => {
                     })
             });
 
-        });
-
-    });
-
-    describe("GET /topics/:topicId/posts/:id/edit", () => {
-
-        it("should render a view with an edit post form", (done) => {
-            request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
-                expect(err).toBeNull();
-                expect(body).toContain("Edit Post");
-                expect(body).toContain("Snowman Building Competition");
-                done();
-            });
         });
 
     });
@@ -218,4 +257,4 @@ describe("routes : posts", () => {
 
     });
 
-});
+})

@@ -31,7 +31,7 @@ module.exports = {
                 if (!post) {
                     return callback("Post not found");
                 }
-                //console.log("***REACHED update in post Query and User ====> " + req.user)
+                console.log("***REACHED update in post Query and User ====> " + req.user)
                 const authorized = new Authorizer(req.user, post).update();
                 //console.log("*************Authorized?====> " + authorized)
                 if (authorized) {
