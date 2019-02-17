@@ -78,7 +78,7 @@ module.exports = {
 
         return Topic.findById(req.params.id)
             .then((topic) => {
-        console.log("*************Got to the update in Topic Query and User ====> " + req.user)
+                //console.log("*************Got to the update in Topic Query and User ====> " + req.user)
                 if (!topic) {
                     return callback("Topic not found");
                 }
@@ -86,7 +86,7 @@ module.exports = {
                 const authorized = new Authorizer(req.user, topic).update();
 
                 if (authorized) {
-        console.log("*************Updated Topic?====> " + updatedTopic)
+                    //console.log("*************Updated Topic?====> " + updatedTopic)
                     topic.update(updatedTopic, {
                             fields: Object.keys(updatedTopic)
                         })
@@ -110,7 +110,7 @@ module.exports = {
         // #1
         return Topic.findById(req.params.id)
             .then((topic) => {
-console.log("*************Got to the destory in topic Query and time to check ********" + req.user)
+                //console.log("*************Got to the destory in topic Query and time to check ********" + req.user)
                 // #2
                 const authorized = new Authorizer(req.user, topic).destroy();
 
