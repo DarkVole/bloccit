@@ -13,7 +13,7 @@ describe("routes : topics", () => {
             force: true
         }).then(() => { // clear database
             Topic.create({
-                    title: "JS Frameworks",
+                    title: "JavaScript Frameworks",
                     description: "There is a lot of them"
                 })
                 .then((res) => {
@@ -46,7 +46,7 @@ describe("routes : topics", () => {
                 request.get(base, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("Topics");
-                    expect(body).toContain("JS Frameworks");
+                    expect(body).toContain("JavaScript Frameworks");
                     done();
                 });
             });
@@ -101,7 +101,7 @@ describe("routes : topics", () => {
             it("should render a view with the selected topic", (done) => {
                 request.get(`${base}${this.topic.id}`, (err, res, body) => {
                     expect(err).toBeNull();
-                    expect(body).toContain("JS Frameworks");
+                    expect(body).toContain("JavaScript Frameworks");
                     done();
                 });
             });
@@ -139,7 +139,7 @@ describe("routes : topics", () => {
                 request.get(`${base}${this.topic.id}/edit`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("Edit Topic");
-                    expect(body).toContain("JS Frameworks");
+                    expect(body).toContain("JavaScript Frameworks");
                     done();
                 });
             });
@@ -192,7 +192,7 @@ describe("routes : topics", () => {
                 request.get(base, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("Topics");
-                    expect(body).toContain("JS Frameworks");
+                    expect(body).toContain("JavaScript Frameworks");
                     done();
                 });
             });
@@ -248,7 +248,7 @@ describe("routes : topics", () => {
                 // inside `it` blocks.
                 request.get(`${base}${this.topic.id}`, (err, res, body) => {
                     expect(err).toBeNull();
-                    expect(body).toContain("JS Frameworks");
+                    expect(body).toContain("JavaScript Frameworks");
                     done();
                 });
             });
@@ -286,7 +286,7 @@ describe("routes : topics", () => {
                 request.get(`${base}${this.topic.id}/edit`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).not.toContain("Edit Topic");
-                    expect(body).toContain("JS Frameworks"); // confirm redirect to topic show
+                    expect(body).toContain("JavaScript Frameworks"); // confirm redirect to topic show
                     done();
                 });
             });
@@ -313,7 +313,7 @@ describe("routes : topics", () => {
                                 }
                             })
                             .then((topic) => {
-                                expect(topic.title).toBe("JS Frameworks"); // confirm title is unchanged
+                                expect(topic.title).toBe("JavaScript Frameworks"); // confirm title is unchanged
                                 done();
                             });
                     });
