@@ -99,7 +99,7 @@ describe("routes : posts", () => {
                     }
 
                 };
-                //console.log(options.form.title);
+
                 request.post(options,
                     (err, res, body) => {
 
@@ -109,7 +109,7 @@ describe("routes : posts", () => {
                                 }
                             })
                             .then((post) => {
-                                //console.log("====post.topicId========> " + post.body);
+
                                 expect(post).not.toBeNull();
                                 expect(post.title).toBe("Watching snow melt");
                                 expect(post.body).toBe("Without a doubt my favoriting things to do besides watching paint dry!");
@@ -134,7 +134,6 @@ describe("routes : posts", () => {
                     url: `${base}/${this.topic.id}/posts/create`,
                     form: {
 
-                        //#1
                         title: "a",
                         body: "b"
                     }
@@ -143,7 +142,6 @@ describe("routes : posts", () => {
                 request.post(options,
                     (err, res, body) => {
 
-                        //#2
                         Post.findOne({
                                 where: {
                                     title: "a"
@@ -170,8 +168,6 @@ describe("routes : posts", () => {
 
             it("should render a view with an edit post form", (done) => {
 
-                //console.log(`${base}/${this.topic.id}/posts/${this.post.id}/edit`);
-                //console.log(this.post.id);
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("Edit Post");
@@ -227,12 +223,10 @@ describe("routes : posts", () => {
 
             it("should delete the post with the associated ID", (done) => {
 
-                //#1
                 expect(this.post.id).toBe(1);
 
                 request.post(`${base}/${this.topic.id}/posts/${this.post.id}/destroy`, (err, res, body) => {
 
-                    //#2
                     Post.findById(1)
                         .then((post) => {
                             expect(err).toBeNull();
@@ -297,7 +291,7 @@ describe("routes : posts", () => {
                     }
 
                 };
-                //console.log(options.form.title);
+
                 request.post(options,
                     (err, res, body) => {
 
@@ -307,7 +301,7 @@ describe("routes : posts", () => {
                                 }
                             })
                             .then((post) => {
-                                //console.log("====post.topicId========> " + post.body);
+
                                 expect(post).not.toBeNull();
                                 expect(post.title).toBe("Watching snow melt");
                                 expect(post.body).toBe("Without a doubt my favoriting things to do besides watching paint dry!");
@@ -332,7 +326,6 @@ describe("routes : posts", () => {
                     url: `${base}/${this.topic.id}/posts/create`,
                     form: {
 
-                        //#1
                         title: "a",
                         body: "b"
                     }
@@ -341,7 +334,6 @@ describe("routes : posts", () => {
                 request.post(options,
                     (err, res, body) => {
 
-                        //#2
                         Post.findOne({
                                 where: {
                                     title: "a"
@@ -366,8 +358,6 @@ describe("routes : posts", () => {
 
             it("should render a view with an edit post form", (done) => {
 
-                //console.log(`${base}/${this.topic.id}/posts/${this.post.id}/edit`);
-                //console.log(this.post.id);
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("Edit Post");
@@ -423,12 +413,10 @@ describe("routes : posts", () => {
 
             it("should delete the post with the associated ID", (done) => {
 
-                //#1
                 expect(this.post.id).toBe(1);
 
                 request.post(`${base}/${this.topic.id}/posts/${this.post.id}/destroy`, (err, res, body) => {
 
-                    //#2
                     Post.findById(1)
                         .then((post) => {
                             expect(err).toBeNull();

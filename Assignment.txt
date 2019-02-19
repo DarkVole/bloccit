@@ -10,20 +10,20 @@ We are light on tests for the `Comment` resource. For this assignment, write mor
 The tests are focused at the two points in the assignmnet in the comments section: 
 
 
-##### Member user tries to delete another member user's comment. This should not be successful #####
+#### Member user tries to delete another member user's comment. This should not be successful ####
 
 In `spec/integration/comments_spec.js`, we describe on line 76 "guest attempting to perform CRUD actions for Comment". The section 
 
 
 _Line 231_     `describe("Members attempting to perform CRUD actions for Comment", () => {` should be the place where one member cannot destory another's comment. Line 237 sets the `userId` to `999`, different from the `userId` of 1 that has been set up for testing. From there we attempt to run the `destory` command. Because the number of comments is still `1` (_Line 253_), and since that's what we expected, the test passes. 
 
-In addition, we must prevent one member not being able to see another member's Delete button. That is done in `src/views/comments/show.ejs` on _Line 16_
+In addition, we must prevgitent one member not being able to see another member's Delete button. That is done in `src/views/comments/show.ejs` on _Line 16_
 
 ```
-    <% if(currentUser && (currentUser.id === comment.userId || currentUser.isAdmin())) { %>
+<% if(currentUser && (currentUser.id === comment.userId || currentUser.isAdmin())) { %>
 ```
 
-##### Admin user tries to delete member user's comment. This should be successful #####
+#### Admin user tries to delete member user's comment. This should be successful ####
 
 _Line 272_  We change the role to `admin` in _Line 278_, and then get the number of comments on _Line 295_, which we expect to be `1`. After we run the request, we then recheck the number of comments, which is now `0`. This represents a deleted record, which is what we expected for the test to pass.  
 

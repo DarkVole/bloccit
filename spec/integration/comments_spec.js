@@ -1,4 +1,3 @@
-// #1
 const request = require("request");
 const server = require("../../src/server");
 const base = "http://localhost:3000/topics/";
@@ -13,7 +12,6 @@ describe("routes : comments", () => {
 
     beforeEach((done) => {
 
-        // #2
         this.user;
         this.topic;
         this.post;
@@ -23,7 +21,6 @@ describe("routes : comments", () => {
             force: true
         }).then((res) => {
 
-            // #3
             User.create({
                     email: "starman@tesla.com",
                     password: "Trekkie4lyfe"
@@ -72,10 +69,8 @@ describe("routes : comments", () => {
     });
 
     //test suites will go there
-    // #1
     describe("guest attempting to perform CRUD actions for Comment", () => {
 
-        // #2
         beforeEach((done) => { // before each suite in this context
             request.get({ // mock authentication
                     url: "http://localhost:3000/auth/fake",
@@ -89,7 +84,6 @@ describe("routes : comments", () => {
             );
         });
 
-        // #3
         describe("POST /topics/:topicId/posts/:postId/comments/create", () => {
 
             it("should not create a new comment", (done) => {
@@ -101,7 +95,7 @@ describe("routes : comments", () => {
                 };
                 request.post(options,
                     (err, res, body) => {
-                        // #4
+
                         Comment.findOne({
                                 where: {
                                     body: "This comment is amazing!"
@@ -121,7 +115,6 @@ describe("routes : comments", () => {
         });
 
 
-        // #5
         describe("POST /topics/:topicId/posts/:postId/comments/:id/destroy", () => {
 
             it("should not delete the comment with the associated ID", (done) => {
@@ -146,7 +139,6 @@ describe("routes : comments", () => {
             });
         });
 
-        // #1
         describe("signed in user performing CRUD actions for Comment", () => {
 
             beforeEach((done) => { // before each suite in this context
@@ -163,7 +155,7 @@ describe("routes : comments", () => {
                 );
             });
 
-            // #2
+
             describe("POST /topics/:topicId/posts/:postId/comments/create", () => {
 
                 it("should create a new comment and redirect", (done) => {
@@ -195,7 +187,7 @@ describe("routes : comments", () => {
                 });
             });
 
-            // #3
+
             describe("POST /topics/:topicId/posts/:postId/comments/:id/destroy", () => {
 
                 it("should delete the comment with the associated ID", (done) => {
@@ -287,7 +279,7 @@ describe("routes : comments", () => {
 
         describe("POST /topics/:topicId/posts/:postId/comments/:id/destroy", () => {
 
-            it("should not delete the comment with the associated ID", (done) => {
+            it("should delete the comment with the associated ID", (done) => {
                 Comment.all()
                     .then((comments) => {
                         const commentCountBeforeDelete = comments.length;

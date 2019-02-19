@@ -4,7 +4,7 @@ const Authorizer = require("../policies/topic");
 
 module.exports = {
 
-    //#1
+
     getAllTopics(callback) {
         return Topic.all()
 
@@ -46,39 +46,11 @@ module.exports = {
             })
     },
 
-    /*deleteTopic(req, callback) {
-
-        // #1
-        return Topic.findById(req.params.id)
-            .then((topic) => {
-
-                // #2
-                const authorized = new Authorizer(req.user, topic).destroy();
-
-                if (authorized) {
-                    // #3
-                    topic.destroy()
-                        .then((res) => {
-                            callback(null, topic);
-                        });
-
-                } else {
-
-                    // #4
-                    req.flash("notice", "You are not authorized to do that.")
-                    callback(401);
-                }
-            })
-            .catch((err) => {
-                callback(err);
-            });
-    },*/
-
     updateTopic(req, updatedTopic, callback) {
 
         return Topic.findById(req.params.id)
             .then((topic) => {
-                //console.log("*************Got to the update in Topic Query and User ====> " + req.user)
+
                 if (!topic) {
                     return callback("Topic not found");
                 }
@@ -86,7 +58,7 @@ module.exports = {
                 const authorized = new Authorizer(req.user, topic).update();
 
                 if (authorized) {
-                    //console.log("*************Updated Topic?====> " + updatedTopic)
+
                     topic.update(updatedTopic, {
                             fields: Object.keys(updatedTopic)
                         })
@@ -98,7 +70,6 @@ module.exports = {
                         });
                 } else {
 
-                    // #5
                     req.flash("notice", "You are not authorized to do that.");
                     callback("Forbidden");
                 }
@@ -107,11 +78,9 @@ module.exports = {
 
     deleteTopic(req, callback) {
 
-        // #1
         return Topic.findById(req.params.id)
             .then((topic) => {
-                //console.log("*************Got to the destory in topic Query and time to check ********" + req.user)
-                // #2
+
                 const authorized = new Authorizer(req.user, topic).destroy();
 
                 if (authorized) {
@@ -123,7 +92,6 @@ module.exports = {
 
                 } else {
 
-                    // #4
                     req.flash("notice", "You are not authorized to do that.")
                     callback(401);
                 }
