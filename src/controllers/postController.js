@@ -6,7 +6,6 @@ module.exports = {
     new(req, res, next) {
 
         const authorized = new Authorizer(req.user).new();
-        //console.log("********Authorized? " + authorized)
         if (authorized) {
             res.render("posts/new", {
                 topicId: req.params.topicId
@@ -47,10 +46,8 @@ module.exports = {
 
     edit(req, res, next) {
         postQueries.getPost(req.params.id, (err, post) => {
-            //console.log("Entered post controller edit")
             if (err || post == null) {
                 res.redirect(404, "/");
-                //console.log("Failed at null check")
             } else {
                 const authorized = new Authorizer(req.user, post).edit();
 

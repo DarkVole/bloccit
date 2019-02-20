@@ -35,7 +35,7 @@ describe("routes : users", () => {
 
     describe("POST /users", () => {
 
-        // #1
+
         it("should create a new user with valid values and redirect", (done) => {
 
             const options = {
@@ -49,7 +49,6 @@ describe("routes : users", () => {
             request.post(options,
                 (err, res, body) => {
 
-                    // #2
                     User.findOne({
                             where: {
                                 email: "user@example.com"
@@ -69,7 +68,6 @@ describe("routes : users", () => {
             );
         });
 
-        // #3
         it("should not create a new user with invalid attributes and redirect", (done) => {
             request.post({
                     url: base,

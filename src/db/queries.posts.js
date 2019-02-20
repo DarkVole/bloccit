@@ -5,10 +5,9 @@ const Comment = require("./models").Comment;
 const User = require("./models").User;
 
 module.exports = {
-    
+
     getPost(id, callback) {
 
-        // #2
         return Post.findById(id, {
                 include: [
                     {
@@ -49,11 +48,11 @@ module.exports = {
                 if (!post) {
                     return callback("Post not found");
                 }
-                //console.log("***REACHED update in post Query and User ====> " + req.user)
+
                 const authorized = new Authorizer(req.user, post).update();
-                //console.log("*************Authorized?====> " + authorized)
+
                 if (authorized) {
-                    //console.log("*************Updated Post?====> " + updatedPost)
+
                     post.update(updatedPost, {
                             fields: Object.keys(updatedPost)
                         })
@@ -79,7 +78,7 @@ module.exports = {
             .then((post) => {
 
                 const authorized = new Authorizer(req.user, post).destroy();
-                //console.log("**********Aurthorized? "+ authorized + "User Object " + req.user )
+
                 if (authorized) {
                     post.destroy()
                         .then((res) => {
