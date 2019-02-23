@@ -19,6 +19,8 @@
              res.redirect(req.headers.referer);
          }
      },
+     
+     
      downvote(req, res, next) {
 
          if (req.user) {

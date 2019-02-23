@@ -181,6 +181,7 @@ describe("Comment", () => {
             this.comment.getPost()
                 .then((associatedPost) => {
                     expect(associatedPost.title).toBe("My first visit to Proxima Centauri b");
+                    expect(associatedPost.body).toBe("I saw some rocks.");
                     done();
                 });
 

@@ -194,16 +194,23 @@ describe("routes : votes", () => {
 
                 request.get(options,
                     (err, res, body) => {
-                        Vote.count({
+                        Vote.findOne({
                                 where: {
                                     userId: this.user.id,
-                                    postId: this.post.id
+                                    postId: this.post.id,
+                                }
+
+                            }),
+                            Vote.findOne({
+                                where: {
+                                    userId: this.user.id,
+                                    postId: this.post.id,
                                 }
 
                             })
                             .then((vote) => { // confirm that an upvote was created
                                 expect(vote).not.toBeNull();
-                                expect(vote.total).toBeLessThanOrEqual(1);
+                                expect(vote.value).toBeLessThanOrEqual(1);
                                 expect(vote.userId).toBe(this.user.id);
                                 expect(vote.postId).toBe(this.post.id);
                                 done();

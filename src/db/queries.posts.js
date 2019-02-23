@@ -8,6 +8,7 @@ const Vote = require("./models").Vote;
 module.exports = {
 
     getPost(id, callback) {
+    // console.log(post.id.title);
 
         return Post.findById(id, {
                 include: [
@@ -27,14 +28,18 @@ module.exports = {
 
                     }
        ]
+
             })
 
             .then((post) => {
                 callback(null, post);
+                 console.dir(post.votes.postId);
             })
+
             .catch((err) => {
                 callback(err);
             })
+
     },
 
     addPost(newPost, callback) {
@@ -101,5 +106,48 @@ module.exports = {
             .catch((err) => {
                 callback(err);
             });
-    }
+    },
+
+
+
+
+
+
+
+
+
+    hasUpvoteFor(id, callback) {
+
+        return Post.findById(req.params.id, {
+                include: [
+                    {
+                        model: Comment,
+                        as: "comments",
+                        include: [
+                            {
+                                model: User
+                            },
+
+         ]
+                    },
+                    {
+                        model: Vote,
+                        as: "votes",
+
+                    }
+       ]
+            })
+
+            .then((post) => {
+                callback(null, post);
+            })
+            .catch((err) => {
+                callback(err);
+            })
+    },
+
+
+
+
+
 }
