@@ -430,4 +430,46 @@ describe("routes : posts", () => {
         });
 
     });
+
+
+
+    // test for voting
+    describe("Show for Post and Voting status", () => {
+
+        beforeEach((done) => { // before each suite in admin context
+            request.get({ // mock authentication
+                url: "http://localhost:3000/auth/fake",
+                form: {
+
+                    userId: 1,
+                }
+            });
+            done();
+        });
+
+        describe("GET /topics/:topicId/posts/:id", () => {
+
+            it("should render a view with the selected post", (done) => {
+                request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+                            
+
+                    this.post.hasUpvoteFor(this.user.id, (res) => {
+                        expect(res).tobe(false)
+                        done();
+                    });
+                });
+
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+    });
 });
