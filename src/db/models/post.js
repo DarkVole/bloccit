@@ -51,6 +51,44 @@ module.exports = (sequelize, DataTypes) => {
                 });
         };
 
+        Post.prototype.hasUpvoteFor = function (selectedUser) {
+
+            let totalVotes = post.votes.length;
+            console.log(post.votes.length);
+            let result = false;
+
+            for (i = 0; i < totalVotes - 1; i++) {
+
+                if (post.votes[i].userId == selectedUser) {
+                    if (post.votes[i].value = 1) {
+                        result = true
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        Post.prototype.hasDownvoteFor = function (selectedUser) {
+
+            let totalVotes = post.votes.length;
+            console.log(post.votes.length);
+            let result = false;
+
+            for (i = 0; i < totalVotes - 1; i++) {
+
+                if (post.votes[i].userId == selectedUser) {
+                    if (post.votes[i].value = -1) {
+                        result = true
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+
     };
     return Post;
 };

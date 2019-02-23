@@ -289,4 +289,91 @@ describe("routes : votes", () => {
 
     }); //end context for signed in user
 
-});
+    // Assignment checks
+
+    describe("signed in user voting on a post", () => {
+
+        beforeEach((done) => { // before each suite in this context
+            request.get({ // mock authentication
+                    form: {
+                        userId: 3,
+                        postId: 2,
+                        value: 1
+                    }
+                },
+                (err, res, body) => {
+                    done();
+                }
+            );
+        });
+
+        describe("GET /topics/:topicId/posts/:postId/votes/upvote", () => {
+
+            it("should create an upvote", (done) => {
+                const options = {
+                    url: `${base}${this.topic.id}/posts/${this.post.id}/votes/upvote`
+                };
+                request.get(options,
+                    (err, res, body) => {
+                        Vote.findOne({
+                                where: {
+                                    userId: this.user.id,
+                                    postId: this.post.id,
+                                    value: 1,
+
+                                }
+                            })
+                            .then((vote) => { // confirm that an upvote was created
+                                expect(vote).not.toBeNull();
+                                expect(vote.value).toBe(1);
+                                expect(vote.userId).toBe(this.user.id);
+                                expect(vote.postId).toBe(this.post.id);
+                                done();
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                                done();
+                            });
+                    }
+                );
+            });
+        });
+
+
+        describe("GET /topics/:topicId/posts/:postId/votes/downvote", () => {
+
+            it("should create an upvote", (done) => {
+                const options = {
+                    url: `${base}${this.topic.id}/posts/${this.post.id}/votes/downvote`
+                };
+                request.get(options,
+                    (err, res, body) => {
+                        Vote.findOne({
+                                where: {
+                                    userId: this.user.id,
+                                    postId: this.post.id,
+                                    value: -1,
+
+                                }
+                            })
+                            .then((vote) => { // confirm that an upvote was created
+                                expect(vote).not.toBeNull();
+                                expect(vote.value).toBe(-1);
+                                expect(vote.userId).toBe(this.user.id);
+                                expect(vote.postId).toBe(this.post.id);
+                                done();
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                                done();
+                            });
+                    }
+                );
+            });
+        });
+
+
+
+    });
+
+})
