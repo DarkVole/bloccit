@@ -6,6 +6,7 @@ const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
 const Post = require("../../src/db/models").Post;
 const User = require("../../src/db/models").User;
+const Vote = require("../../src/db/models").Vote;
 
 describe("routes : posts", () => {
 
@@ -451,10 +452,14 @@ describe("routes : posts", () => {
 
             it("should render a view with the selected post", (done) => {
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-                            
-
+                    console.log(res);
+                    Vote.create({
+                        value: 1,
+                        userId: this.user.id,
+                        postId: this.post.id
+                    })
                     this.post.hasUpvoteFor(this.user.id, (res) => {
-                        expect(res).tobe(false)
+                        console.log(res);
                         done();
                     });
                 });

@@ -51,24 +51,34 @@ module.exports = (sequelize, DataTypes) => {
                 });
         };
 
-        Post.prototype.hasUpvoteFor = function (selectedUser) {
+        Post.prototype.hasUpvoteFor = function (usersID) {
 
-            let totalVotes = post.votes.length;
-            console.log(post.votes.length);
-            let result = false;
+            let testResult = "There is not an upvote";
+            let x = this.votes.length - 1;
+            let j = 0;
+            for (j = 0; j <= x; j++) {
+                console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Entered Id " + usersID)
+                if (this.votes[j].value == -1 && this.votes[j].userId == usersID) {
+                    let testResult = "There is an upvote"
 
-            for (i = 0; i < totalVotes - 1; i++) {
 
-                if (post.votes[i].userId == selectedUser) {
-                    if (post.votes[i].value = 1) {
-                        result = true
-                        break;
-                    }
-                }
+                    break;
+                };
+
             }
+            console.log(testResult);
+            return testResult;
 
-            return result;
-        }
+        };
+
+
+
+
+
+
+
+
+
 
         Post.prototype.hasDownvoteFor = function (selectedUser) {
 
