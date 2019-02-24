@@ -1,1 +1,107 @@
-      <!--  <% include ../static/partials/messages.ejs %> -->
+Started
+server is listening for requests on port 3000
+.sequelize deprecated Model.all has been deprecated, please use Model.findAll instead node_modules/sequelize/lib/model.js:4228:9
+sequelize deprecated Model.findById has been deprecated, please use Model.findByPk instead node_modules/sequelize/lib/model.js:4208:9
+.....F.......F.......................null
+......TypeError: expect(...).toBeThanOrEqual is not a function
+    at Vote.findOne.then (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/votes_spec.js:243:52)
+    at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:694:18)
+    at _drainQueueStep (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:138:12)
+    at _drainQueue (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:131:9)
+    at Async._drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:147:5)
+    at Immediate.Async.drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5)
+.TypeError: expect(...).toBeThanOrEqual is not a function
+    at Vote.findOne.then (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/votes_spec.js:273:52)
+    at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:694:18)
+    at _drainQueueStep (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:138:12)
+    at _drainQueue (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:131:9)
+    at Async._drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:147:5)
+    at Immediate.Async.drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5)
+.........................
+
+Failures:
+1) routes : posts GET /topics/:topicId/posts/:id should render a view with the selected post
+  Message:
+    Expected '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+<br><br>Cannot read property &#39;id&#39; of undefined<br> &nbsp; &nbsp;at eval (eval at compile (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:618:12), &lt;anonymous&gt;:97:43)<br> &nbsp; &nbsp;at returnedFn (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:653:17)<br> &nbsp; &nbsp;at tryHandleCache (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:251:36)<br> &nbsp; &nbsp;at View.exp ... to contain 'So much snow!'.
+  Stack:
+    Error: Expected '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+<br><br>Cannot read property &#39;id&#39; of undefined<br> &nbsp; &nbsp;at eval (eval at compile (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:618:12), &lt;anonymous&gt;:97:43)<br> &nbsp; &nbsp;at returnedFn (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:653:17)<br> &nbsp; &nbsp;at tryHandleCache (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:251:36)<br> &nbsp; &nbsp;at View.exp ... to contain 'So much snow!'.
+        at <Jasmine>
+        at Request.request.get [as _callback] (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:59:30)
+        at Request.self.callback (/usr/lib/nodejs/request/index.js:148:22)
+        at emitTwo (events.js:126:13)
+        at Request.emit (events.js:214:7)
+        at Request.<anonymous> (/usr/lib/nodejs/request/index.js:896:14)
+        at emitOne (events.js:121:20)
+        at Request.emit (events.js:211:7)
+        at IncomingMessage.<anonymous> (/usr/lib/nodejs/request/index.js:847:12)
+        at emitNone (events.js:111:20)
+        at IncomingMessage.emit (events.js:208:7)
+        at endReadableNT (_stream_readable.js:1064:12)
+        at _combinedTickCallback (internal/process/next_tick.js:138:11)
+        at process._tickCallback (internal/process/next_tick.js:180:9)
+
+2) routes : posts Show for Post using Admin role - CRUD GET /topics/:topicId/posts/:id should render a view with the selected post
+  Message:
+    Expected '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+<br><br>Cannot read property &#39;id&#39; of undefined<br> &nbsp; &nbsp;at eval (eval at compile (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:618:12), &lt;anonymous&gt;:97:43)<br> &nbsp; &nbsp;at returnedFn (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:653:17)<br> &nbsp; &nbsp;at tryHandleCache (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:251:36)<br> &nbsp; &nbsp;at View.exp ... to contain 'So much snow!'.
+  Stack:
+    Error: Expected '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+<br><br>Cannot read property &#39;id&#39; of undefined<br> &nbsp; &nbsp;at eval (eval at compile (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:618:12), &lt;anonymous&gt;:97:43)<br> &nbsp; &nbsp;at returnedFn (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:653:17)<br> &nbsp; &nbsp;at tryHandleCache (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/ejs/lib/ejs.js:251:36)<br> &nbsp; &nbsp;at View.exp ... to contain 'So much snow!'.
+        at <Jasmine>
+        at Request.request.get [as _callback] (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:265:34)
+        at Request.self.callback (/usr/lib/nodejs/request/index.js:148:22)
+        at emitTwo (events.js:126:13)
+        at Request.emit (events.js:214:7)
+        at Request.<anonymous> (/usr/lib/nodejs/request/index.js:896:14)
+        at emitOne (events.js:121:20)
+        at Request.emit (events.js:211:7)
+        at IncomingMessage.<anonymous> (/usr/lib/nodejs/request/index.js:847:12)
+        at emitNone (events.js:111:20)
+        at IncomingMessage.emit (events.js:208:7)
+        at endReadableNT (_stream_readable.js:1064:12)
+        at _combinedTickCallback (internal/process/next_tick.js:138:11)
+        at process._tickCallback (internal/process/next_tick.js:180:9)
+
+70 specs, 2 failures
+Finished in 16.192 seconds
+npm ERR! Test failed.  See above for more details.

@@ -282,7 +282,7 @@ describe("routes : votes", () => {
                     }
                 );
             });
-        });
+        }); 
 
 
 

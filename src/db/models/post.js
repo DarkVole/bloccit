@@ -57,13 +57,13 @@ module.exports = (sequelize, DataTypes) => {
             let x = this.votes.length - 1;
             let j = 0;
             for (j = 0; j <= x; j++) {
-                console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Post Id " + this.votes[j].postId + " Entered Id " + usersID)
+                //console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Post Id " + this.votes[j].postId + " Entered Id " + usersID)
                 if (this.votes[j].value === 1 && this.votes[j].userId === usersID) {
                     testResult = true
                     break;
                 };
             }
-            console.log(testResult);
+            //console.log(testResult);
             return testResult;
 
         };
@@ -86,7 +86,7 @@ module.exports = (sequelize, DataTypes) => {
         };
 
     }
-
-}
+return Post;
+};
 
 

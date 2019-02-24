@@ -20,7 +20,7 @@
             <% } %>
             <h1>
                 <%= post.title %>
-                <%= post.hasUpvoteFor(currentUser.id) %>
+
 
             </h1>
         </div>
@@ -35,13 +35,12 @@
         </form>
 
         <% } %>
-        <% if(post.hasUpvoteFor(currentUser.id)) { %>
-        Has an Up Vote
+        <% if(post.hasDownvoteFor(currentUser.id)) { %>
+        Has an Down Vote
         <% } %>
 
-        <% } %>
         <% if(post.hasUpvoteFor(currentUser.id)) { %>
-        Has an Down Vote
+        Has an Up Vote
         <% } %>
 
 
