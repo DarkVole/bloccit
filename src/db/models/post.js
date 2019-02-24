@@ -53,13 +53,13 @@ module.exports = (sequelize, DataTypes) => {
 
         Post.prototype.hasUpvoteFor = function (usersID) {
 
-            let testResult = 0;
+            let testResult = false;
             let x = this.votes.length - 1;
             let j = 0;
             for (j = 0; j <= x; j++) {
                 console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Post Id " + this.votes[j].postId + " Entered Id " + usersID)
                 if (this.votes[j].value === 1 && this.votes[j].userId === usersID) {
-                    let testResult = 1
+                    testResult = true
                     break;
                 };
             }
@@ -70,32 +70,23 @@ module.exports = (sequelize, DataTypes) => {
 
 
 
+        Post.prototype.hasDownvoteFor = function (usersID) {
 
-
-
-
-
-
-
-        Post.prototype.hasDownvoteFor = function (selectedUser) {
-
-            let totalVotes = post.votes.length;
-            console.log(post.votes.length);
-            let result = false;
-
-            for (i = 0; i < totalVotes - 1; i++) {
-
-                if (post.votes[i].userId == selectedUser) {
-                    if (post.votes[i].value = -1) {
-                        result = true
-                        break;
-                    }
-                }
+            let x = this.votes.length - 1;
+            let j = 0;
+            for (j = 0; j <= x; j++) {
+                
+                if (this.votes[j].value === -1 && this.votes[j].userId === usersID) {
+                    return  true
+                    break;
+                };
             }
+            return false;
 
-            return result;
-        }
+        };
 
-    };
-    return Post;
-};
+    }
+
+}
+
+

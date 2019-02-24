@@ -147,6 +147,6 @@ module.exports = {
         }
 
         return result;
-    }
+    },
 
 }
