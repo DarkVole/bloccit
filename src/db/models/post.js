@@ -53,18 +53,15 @@ module.exports = (sequelize, DataTypes) => {
 
         Post.prototype.hasUpvoteFor = function (usersID) {
 
-            let testResult = "There is not an upvote";
+            let testResult = 0;
             let x = this.votes.length - 1;
             let j = 0;
             for (j = 0; j <= x; j++) {
-                console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Entered Id " + usersID)
-                if (this.votes[j].value == -1 && this.votes[j].userId == usersID) {
-                    let testResult = "There is an upvote"
-
-
+                console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Post Id " + this.votes[j].postId + " Entered Id " + usersID)
+                if (this.votes[j].value === 1 && this.votes[j].userId === usersID) {
+                    let testResult = 1
                     break;
                 };
-
             }
             console.log(testResult);
             return testResult;
