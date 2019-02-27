@@ -240,7 +240,7 @@ describe("routes : votes", () => {
                             })
                             .then((vote) => { // confirm that a downvote was created
                                 expect(vote).not.toBeNull();
-                                expect(vote.value).toBeThanOrEqual(-1);
+                                expect(vote.value).toBeLessThanOrEqual(-1);
                                 expect(vote.userId).toBe(this.user.id);
                                 expect(vote.postId).toBe(this.post.id);
                                 done();
@@ -270,7 +270,7 @@ describe("routes : votes", () => {
                             })
                             .then((vote) => { // confirm that a downvote was created
                                 expect(vote).not.toBeNull();
-                                expect(vote.value).toBeThanOrEqual(-1);
+                                expect(vote.value).toBeLessThanOrEqual(-1);
                                 expect(vote.userId).toBe(this.user.id);
                                 expect(vote.postId).toBe(this.post.id);
                                 done();

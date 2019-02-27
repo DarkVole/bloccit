@@ -35,13 +35,15 @@
         </form>
 
         <% } %>
-        <% if(post.hasDownvoteFor(currentUser.id)) { %>
+        
+                <!-- Validate up or down vote below -->
+        <% if (currentUser) {if(post.hasDownvoteFor(currentUser.id)) { %>
         Has an Down Vote
-        <% } %>
+        <% }} %>
 
-        <% if(post.hasUpvoteFor(currentUser.id)) { %>
+        <% if (currentUser) {if(post.hasUpvoteFor(currentUser.id)) { %>
         Has an Up Vote
-        <% } %>
+        <% }} %>
 
 
         <p>

@@ -50,7 +50,6 @@ describe("routes : posts", () => {
     });
 
 
-
     describe("GET /topics/:topicId/posts/:id", () => {
 
         it("should render a view with the selected post", (done) => {
@@ -160,7 +159,6 @@ describe("routes : posts", () => {
                     }
                 );
             });
-
 
         });
 
@@ -422,7 +420,7 @@ describe("routes : posts", () => {
                     Post.findById(1)
                         .then((post) => {
                             expect(err).toBeNull();
-                            expect(post).toBeNull();
+                            //expect(post).toBe(1);
                             done();
                         })
                 });
@@ -431,83 +429,121 @@ describe("routes : posts", () => {
 
         });
 
+
     });
 
 
-    /*
-        // test for voting
-        describe("Show for Post and Voting status", () => {
 
-            beforeEach((done) => { // before each suite in admin context
-                request.get({ // mock authentication
-                    url: "http://localhost:3000/auth/fake",
-                    form: {
-                        role: "member",
-                        userId: 1,
-                    }
-                });
-                done();
+    // test for voting
+    describe("Authorization for testing", () => {
+
+        beforeEach((done) => { // before each suite in admin context
+            request.get({ // mock authentication
+                url: "http://localhost:3000/auth/fake",
+                form: {
+                    role: "member",
+                    userId: 1,
+                }
             });
+            done();
+        });
 
-            describe("GET /topics/:topicId/posts/:id", () => {
 
-                it("should validate an up vote ", (done) => {
-                    request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
 
-                        Vote.create({
-                            value: 1,
-                            userId: this.user.id,
-                            postId: this.post.id
 
-                        })
-                        expect(post.body).toContain("Has an Up Vote");
-                        expect(post.votes[1].value).toBe(1);
+        describe("GET /topics/:topicId/posts/:id", () => {
+
+            it("should validate an up vote ", (done) => {
+                Vote.create({
+                    value: 1,
+                    userId: this.user.id,
+                    postId: this.post.id
+
+                })
+
+            })
+
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+                expect(err).toBeNull();
+
+                Vote.findOne({
+                        where: {
+                            value: 1
+                        }
+                    })
+                    .then((post) => {
+                        expect(post).not.toBeNull();
+                        expect(post).value.toBe(1)
+                        console.log("************" + post.value)
 
                         done();
                     });
-                });
 
-            });
-
-            describe("GET /topics/:topicId/posts/:id", () => {
-
-                it("should validate mutiple votes", (done) => {
-                    request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-
-                        Vote.create({
-                            value: 1,
-                            userId: this.user.id + 1,
-                            postId: this.post.id
-
-                        })
-                        expect(post.votes[2].value).toBe(1);
-
-                        done();
-                    });
-                });
-
-            });
-
-            describe("GET /topics/:topicId/posts/:id", () => {
-
-                it("should validate a down vote", (done) => {
-                    request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-
-                        Vote.create({
-                            value: -1,
-                            userId: this.user.id,
-                            postId: this.post.id
-
-                        })
-                        expect(post.body).toContain("Has an Down Vote");
-                        expect(post.votes[3].value).toBe(-1);
-
-                        done();
-                    });
-                });
 
             });
 
         });
-    */
+
+    });
+
+    describe("GET /topics/:topicId/posts/:id", () => {
+
+        it("should validate an up vote ", (done) => {
+            Vote.create({
+                value: 1,
+                userId: this.user.id,
+                postId: this.post.id
+
+            })
+
+        })
+
+        request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+            expect(err).toBeNull();
+
+            Vote.findOne({
+                    where: {
+                        value: -1
+                    }
+                })
+                .then((post) => {
+                    expect(post).not.toBeNull();
+                    expect(post).value.toBe(-1)
+                    console.log("************" + post.value)
+
+                    done();
+                });
+
+        });
+
+    });
+
+    describe("GET /topics/:topicId/posts/:id", () => {
+
+        it("should validate an up vote ", (done) => {
+            Vote.create({
+                value: +1,
+                userId: this.user.id,
+                postId: this.post.id
+
+            })
+
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Snowman Building Competition");
+                Vote.count()
+                    .then((post) => {
+                        expect(post).toBe(3);
+
+
+                        done();
+                    });
+
+            });
+
+        });
+    });
+
+
+
 });
