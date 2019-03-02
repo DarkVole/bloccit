@@ -54,7 +54,7 @@ describe("routes : posts", () => {
 
     describe("GET /topics/:topicId/posts/:id", () => {
 
-        it("should render a view with the selected post", (done) => {
+        it("should render a view with the selected post - beggining", (done) => {
             request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
                 expect(err).toBeNull();
                 expect(body).toContain("Snowball Fighting");
@@ -175,29 +175,28 @@ describe("routes : posts", () => {
                     userId: 1,
                 }
             });
-            
-            
-            
-            
-            
+
+
+
+
+
             done();
         });
 
         it("should render a view with an edit post form", (done) => {
-
-        });
-        console.log("DEBUG: this.post");
-        console.log(this.post);
-        console.log("DEBUG: this.topic");
-        console.log(this.topic);
-        console.log("-------\n\n");
-        request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
-            expect(err).toBeNull();
-            expect(body).toContain("Edit Post");
-            expect(body).toContain("Snowman Building Competition");
-            done();
+            console.log("DEBUG: this.post");
+            console.log(this.post);
+            console.log("DEBUG: this.topic");
+            console.log(this.topic);
+            console.log("-------\n\n");
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Edit Post");
+                expect(body).toContain("Snowman Building Competition");
+                done();
 
 
+            });
         });
 
         describe("POST /topics/:topicId/posts/:id/update", () => {
@@ -278,7 +277,7 @@ describe("routes : posts", () => {
 
         describe("GET /topics/:topicId/posts/:id", () => {
 
-            it("should render a view with the selected post", (done) => {
+            it("should render a view with the selected post - admin", (done) => {
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("So much snow!");
