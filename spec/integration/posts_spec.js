@@ -54,10 +54,10 @@ describe("routes : posts", () => {
 
     describe("GET /topics/:topicId/posts/:id", () => {
 
-        it("should render a view with the selected post - beggining", (done) => {
+        it("should render a view with the selected post - beginning", (done) => {
             request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
                 expect(err).toBeNull();
-                expect(body).toContain("Snowball Fighting");
+                expect(body).toContain("Snowman Building Competition");
                 done();
             });
         });
@@ -184,11 +184,7 @@ describe("routes : posts", () => {
         });
 
         it("should render a view with an edit post form", (done) => {
-            console.log("DEBUG: this.post");
-            console.log(this.post);
-            console.log("DEBUG: this.topic");
-            console.log(this.topic);
-            console.log("-------\n\n");
+
             request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
                 expect(err).toBeNull();
                 expect(body).toContain("Edit Post");
@@ -379,7 +375,7 @@ describe("routes : posts", () => {
             it("should render a view with an edit post form", (done) => {
 
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
-                    console.log("**Admin*****this.topic.id******" + this.topic.id + "**********this.post.id*****" + this.post.id)
+
                     expect(err).toBeNull();
                     expect(body).toContain("Edit Post");
                     expect(body).toContain("Snowman Building Competition");
@@ -466,67 +462,7 @@ describe("routes : posts", () => {
             done();
 
 
-            /*
-        describe("GET /topics/:topicId/posts/:id", () => {
-
-            it("should validate an up vote ", (done) => {})
-            console.log(">>>>>>>>>>>>>>>>>base" + "/" + this.topic.id + "/" + this.post.id)
-            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-                expect(err).toBeNull();
-                Vote.findOne({
-                        where: {
-                            value: 1
-                        }
-                    })
-                    .then((post) => {
-                        expect(post).not.toBeNull();
-                        expect(post).value.toBe(1)
-                        done();
-                    });
-            });
-        });
-
-*/
-
-
-            /*it("should validate an up vote ", (done) => {
-                const options = {
-                    url: `${base}/${this.topic.id}/posts/${this.post.id}`,
-                    form: {
-
-                        title: "a",
-                        body: "b"
-                    }
-                };
-
-                request.post(options,
-                    (err, res, body) => {
-
-                        Post.findOne({
-                                where: {
-                                    title: "a"
-                                }
-                            })
-                            .then((post) => {
-                                expect(post).toBeNull();
-                                done();
-                            })
-                            .catch((err) => {
-                                console.log(err);
-                                done();
-                            });
-                    }
-                );
-            */
-
-
-
-
             describe("GET /topics/:topicId/posts/:id", () => {
-
-                console.log("****Vote**this.topic.id***> " + this.topic.id) + "*****==> " + this.post.id
-
-
 
                 it("should validate a down vote ", (done) => {
                     Vote.create({
@@ -544,7 +480,6 @@ describe("routes : posts", () => {
                     .then((post) => {
                         expect(post).not.toBeNull();
                         expect(post).value.toBe(-1)
-                        console.log("************" + post.value)
                         done();
                     });
 
@@ -561,7 +496,7 @@ describe("routes : posts", () => {
                             postId: this.post.id
 
                         })
-                        //console.log(Vote.count())
+
                         expect(err).toBeNull();
 
                         Post.getPoints()

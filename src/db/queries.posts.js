@@ -113,7 +113,7 @@ module.exports = {
     hasUpvoteFor(selectedUser) {
 
         let totalVotes = post.votes.length;
-        console.log(post.votes.length);
+        //console.log(post.votes.length);
         let result = false;
 
         for (i = 0; i < totalVotes - 1; i++) {
@@ -133,7 +133,7 @@ module.exports = {
     hasDownvoteFor(selectedUser) {
 
         let totalVotes = post.votes.length;
-        console.log(post.votes.length);
+        //console.log(post.votes.length);
         let result = false;
 
         for (i = 0; i < totalVotes - 1; i++) {

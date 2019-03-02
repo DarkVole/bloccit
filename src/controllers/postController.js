@@ -6,7 +6,7 @@ module.exports = {
     new(req, res, next) {
 
         const authorized = new Authorizer(req.user).new();
-        //console.log("********Authorized? " + authorized)
+
         if (authorized) {
             res.render("posts/new", {
                 topicId: req.params.topicId
@@ -100,7 +100,7 @@ module.exports = {
             }
         });
     }
-    
-    
+
+
 
 }
