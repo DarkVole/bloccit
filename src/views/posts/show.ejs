@@ -35,17 +35,11 @@
         </form>
 
         <% } %>
-        
-                <!-- Validate up or down vote below -->
-        <% if (currentUser) {if(post.hasDownvoteFor(currentUser.id)) { %>
-        Has an Down Vote
-        <% }} %>
-
-        <% if (currentUser) {if(post.hasUpvoteFor(currentUser.id)) { %>
-        Has an Up Vote
-        <% }} %>
 
 
+        <% if(currentUser) { %>
+        <% include ../favorites/favoriting.ejs %>
+        <% } %>
         <p>
             <%= post.body %>
         </p>
