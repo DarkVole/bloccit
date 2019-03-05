@@ -99,8 +99,8 @@ describe("routes : favorites", () => {
                                         console.log(err);
                                         done();
                                     });
-                            };
-                        )
+                            });
+
                     });
             });
 
@@ -153,7 +153,7 @@ describe("routes : favorites", () => {
 
 
         });
-        
+
         describe("POST /topics/:topicId/posts/:postId/favorites/:id/destroy", () => {
 
             it("should destroy a favorite", (done) => {
