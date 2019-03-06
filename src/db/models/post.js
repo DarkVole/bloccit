@@ -24,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "topicId",
             onDelete: "CASCADE"
         });
-        
+
         Post.belongsTo(models.User, {
             foreignKey: "userId",
             onDelete: "CASCADE"
         });
-        
+
         Post.hasMany(models.Comment, {
             foreignKey: "postId",
             as: "comments"
@@ -41,17 +41,32 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Post.afterCreate((post, callback) => {
+            console.log("Into post create")
+            Vote.create({
+                val: 1,
+                userId: this.user.id,
+                postId: this.post.id
+
+            })
+            console.log("Out of  post create")
+        });
+
+
+        Post.afterCreate((post, callback) => {
             return models.Favorite.create({
                 userId: post.userId,
                 postId: post.id
             });
         });
 
+
+
+
         Post.hasMany(models.Vote, {
             foreignKey: "postId",
             as: "votes"
         });
-        
+
         Post.prototype.getPoints = function () {
 
             // #1
