@@ -42,12 +42,13 @@ module.exports = (sequelize, DataTypes) => {
 
         Post.afterCreate((post, callback) => {
             console.log("Into post create")
-            Vote.create({
-                val: 1,
+            return models.Vote.create({
+                value: 1,
                 userId: this.user.id,
                 postId: this.post.id
 
-            })
+
+            });
             console.log("Out of  post create")
         });
 
