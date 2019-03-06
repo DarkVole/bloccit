@@ -40,18 +40,6 @@ module.exports = (sequelize, DataTypes) => {
             as: "favorites"
         });
 
-        Post.afterCreate((post, callback) => {
-            console.log("Into post create")
-            return models.Vote.create({
-                value: 1,
-                userId: this.user.id,
-                postId: this.post.id
-
-
-            });
-            console.log("Out of  post create")
-        });
-
 
         Post.afterCreate((post, callback) => {
             return models.Favorite.create({
@@ -60,7 +48,14 @@ module.exports = (sequelize, DataTypes) => {
             });
         });
 
-
+        Post.afterCreate((post, callback) => {
+            console.log("Into post create")
+            return models.Vote.create({
+                value: 1,
+                userId: post.userId,
+                postId: post.id
+            });
+        });
 
 
         Post.hasMany(models.Vote, {
