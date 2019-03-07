@@ -4,6 +4,7 @@ const Comment = require("./models").Comment;
 const Favorite = require("./models").Favorite;
 const bcrypt = require("bcryptjs");
 
+
 module.exports = {
 
     createUser(newUser, callback) {

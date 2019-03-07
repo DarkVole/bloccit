@@ -36,7 +36,7 @@
                  req.flash("notice", "No user found with that ID.");
                  res.redirect("/");
              } else {
-
+                 const favorite = post.getFavoriteFor(currentUser.id)
                  res.render("users/show", { ...result
                  });
              }
@@ -57,7 +57,7 @@
                  req.flash("error", err);
                  res.redirect("/users/sign_in");
              } else {
-                 
+
                  passport.authenticate("local")(req, res, () => {
                      req.flash("notice", "You've successfully signed in!");
                      res.redirect("/");

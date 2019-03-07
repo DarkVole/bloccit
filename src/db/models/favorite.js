@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             where: {
                 userId: userId  // Used for User Profile Favorites
             },
+            limit: 5,
             order: [["createdAt", "DESC"]]
         }
     });

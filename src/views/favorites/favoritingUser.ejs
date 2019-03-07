@@ -1,0 +1,10 @@
+<!-- #1 -->
+<% const favorite = post.getFavoriteFor(currentUser.id) %>
+<% if (favorite) { %>
+<li>
+    <span>Post: </span><a href="/topics/<%= favorite.Post.topicId %>/posts/<%= favorite.Post.id %>">
+
+    </a>
+
+</li>
+<% } %>
