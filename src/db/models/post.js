@@ -19,17 +19,18 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {});
     Post.associate = function (models) {
-        // associations can be defined here
+        // associations are defined below:
+        
         Post.belongsTo(models.Topic, {
             foreignKey: "topicId",
             onDelete: "CASCADE"
         });
-        
+
         Post.belongsTo(models.User, {
             foreignKey: "userId",
             onDelete: "CASCADE"
         });
-        
+
         Post.hasMany(models.Comment, {
             foreignKey: "postId",
             as: "comments"
@@ -51,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "postId",
             as: "votes"
         });
-        
+
         Post.prototype.getPoints = function () {
 
             // #1
@@ -104,6 +105,17 @@ module.exports = (sequelize, DataTypes) => {
                 return favorite.userId == userId
             });
         };
+
+        Post.addScope("lastFiveFor", (userId) => {
+
+            return {
+                where: {
+                    userId: userId
+                },
+                limit: 5,
+                order: [["createdAt", "DESC"]]
+            }
+        });
 
     }
     return Post;

@@ -5,6 +5,7 @@ const Post = require("../../src/db/models").Post;
 const Comment = require("../../src/db/models").Comment;
 const User = require("../../src/db/models").User;
 const Vote = require("../../src/db/models").Vote;
+const Favorite = require("../../src/db/models").Favorite;
 
 describe("Vote", () => {
 

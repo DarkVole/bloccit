@@ -28,6 +28,21 @@
          res.redirect("/");
      },
 
+     show(req, res, next) {
+
+         userQueries.getUser(req.params.id, (err, result) => {
+
+             if (err || result.user === undefined) {
+                 req.flash("notice", "No user found with that ID.");
+                 res.redirect("/");
+             } else {
+
+                 res.render("users/show", { ...result
+                 });
+             }
+         });
+     },
+
      create(req, res, next) {
 
          let newUser = {
@@ -42,7 +57,7 @@
                  req.flash("error", err);
                  res.redirect("/users/sign_in");
              } else {
-
+                 
                  passport.authenticate("local")(req, res, () => {
                      req.flash("notice", "You've successfully signed in!");
                      res.redirect("/");
