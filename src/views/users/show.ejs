@@ -58,6 +58,27 @@
             <hr>
             <% }) %>
             <% } %>
+
+            <h2> Latest Favorites</h2>
+
+            <ul class="list-unstyled">
+
+                <!-- #4 -->
+                <% if(faviroties) { %>
+                <% favorites.forEach((favorite) => { %>
+
+                <!-- #5 -->
+                <li>
+                    <span>Post: </span><a href="/topics/<%= comment.Post.topicId %>/posts/<%= comment.Post.id %>">
+                        
+                    </a>
+
+                </li>
+                <hr>
+                <% }) %>
+                <% } %>
+            </ul>
+
         </ul>
     </main>
 
