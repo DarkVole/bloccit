@@ -64,12 +64,12 @@
             <ul class="list-unstyled">
 
                 <!-- #4 -->
-                <% if(faviroties) { %>
+                <% if(favorites) { %>
                 <% favorites.forEach((favorite) => { %>
 
                 <!-- #5 -->
                 <li>
-                    <span>Post: </span><a href="/topics/<%= comment.Post.topicId %>/posts/<%= comment.Post.id %>">
+                    <span>Post: </span><a href="/topics/<%= favorites.Post.topicId %>/posts/<%= favorites.Post.id %>">
                         
                     </a>
 
