@@ -1,153 +1,45 @@
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm test
-
-> bloccit@1.0.0 test /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
-> export NODE_ENV=test && jasmine
-
-Started
-server is listening for requests on port 3000
-.sequelize deprecated Model.all has been deprecated, please use Model.findAll instead node_modules/sequelize/lib/model.js:4228:9
-sequelize deprecated Model.findById has been deprecated, please use Model.findByPk instead node_modules/sequelize/lib/model.js:4208:9
-.....................FFPromise {
-  _bitField: 0,
-  _fulfillmentHandler0: undefined,
-  _rejectionHandler0: undefined,
-  _promise0: undefined,
-  _receiver0: undefined }
-F................null
-................................
-
-Failures:
-1) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
-  Message:
-    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
-  Stack:
-    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
-        at <Jasmine>
-        at ontimeout (timers.js:482:11)
-        at tryOnTimeout (timers.js:317:5)
-        at Timer.listOnTimeout (timers.js:277:5)
-
-2) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
-  Message:
-    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
-  Stack:
-    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
-        at <Jasmine>
-        at ontimeout (timers.js:482:11)
-        at tryOnTimeout (timers.js:317:5)
-        at Timer.listOnTimeout (timers.js:277:5)
-
-3) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
-  Message:
-    Expected 0 to be 1.
-  Stack:
-    Error: Expected 0 to be 1.
-        at <Jasmine>
-        at Vote.count.then (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:533:46)
-        at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
-        at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
-        at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
-        at Promise._settlePromise0 (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:614:10)
-        at Promise._settlePromises (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:694:18)
-        at _drainQueueStep (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:138:12)
-        at _drainQueue (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:131:9)
-        at Async._drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:147:5)
-        at Immediate.Async.drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:17:14)
-        at runCallback (timers.js:794:20)
-        at tryOnImmediate (timers.js:752:5)
-        at processImmediate [as _immediateCallback] (timers.js:729:5)
-
-Suite error: routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id
-  Message:
-    TypeError: Cannot read property 'id' of undefined
-  Stack:
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:462:51)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:456:13)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:224:13)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:81:9)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:66:5)
-        at <Jasmine>
-        at Object.<anonymous> (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:11:1)
-        at Module._compile (module.js:652:30)
-
-Suite error: routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id
-  Message:
-    TypeError: Cannot read property 'id' of undefined
-  Stack:
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:496:51)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:484:13)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:224:13)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:81:9)
-        at <Jasmine>
-        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:66:5)
-        at <Jasmine>
-        at Object.<anonymous> (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:11:1)
-        at Module._compile (module.js:652:30)
-
-73 specs, 5 failures
-Finished in 27.445 seconds
-npm ERR! Test failed.  See above for more details.
+CURRENT STATUS - SUMMARY
 
 
+Assignment Basics
+
+Add a list of posts that have been marked as favorites by the user, similar to comments in the previous assignment.
+
+Link for assignment: https://www.bloc.io/users/kevin-kohls/checkpoints/3008?section_id=386
 
 
+Currents Steps to get to problem
+1. npm start - runs normally
+2. sign in as admin - runs normally
+3. attempt to go to profile page - errors on console:
 
+```
+ReferenceError: C:\Users\Kevin Kohls\BlocProjects\bloccit\src\views\users\show.ejs:67
+```
+<% const favorite = post.getFavoriteFor(currentUser.id) %>
+<% if (favorite) { %>
+```
+    65|
+    66|                 <!-- #4 -->
+ >> 67|                 <% if(favorites) { %>
+    68|                 <% favorites.forEach((favorite) => { %>
+    69|
+    70|                 <!-- #5 -->
 
+favorites is not defined
+```
 
+**Latest debug steps**
 
+Since favorites is not defined, we can look at the last place it has been defined successly - in `favorites\favoriting.ejs`. Here we see this .ejs:
 
+```
+<% const favorite = post.getFavoriteFor(currentUser.id) %>
+<% if (favorite) { %>
+```
 
+We have tried several ways to move this definition into one of the files that will allow it to work, including the `\show.ejs\ file and other user and post files.  We have not found one that works at this time.
 
+**END OF DEBUG** as of 3/8/2019 at 4:56 PM
 
-
-// IGNORE - SAVED CODE 
-
-       /*
-                    describe("GET /topics/:topicId/posts/:id", () => {
-
-                        it("should validate mutiple votes", (done) => {
-                            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-
-                                Vote.create({
-                                    value: 1,
-                                    userId: this.user.id + 1,
-                                    postId: this.post.id
-
-                                })
-                                expect(post.votes[2].value).toBe(1);
-
-                                done();
-                            });
-                        });
-
-                    });
-
-                    describe("GET /topics/:topicId/posts/:id", () => {
-
-                        it("should validate a down vote", (done) => {
-                            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
-
-                                Vote.create({
-                                    value: -1,
-                                    userId: this.user.id,
-                                    postId: this.post.id
-
-                                })
-                                expect(post.body).toContain("Has an Down Vote");
-                                expect(post.votes[3].value).toBe(-1);
-
-                                done();
-                            });
-                        });
-
-                    });
-        */
+Latest Push to GitHub at about 3PM: https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
