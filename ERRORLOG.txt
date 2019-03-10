@@ -11,35 +11,23 @@ Link for assignment: https://www.bloc.io/users/kevin-kohls/checkpoints/3008?sect
 Currents Steps to get to problem
 1. npm start - runs normally
 2. sign in as admin - runs normally
-3. attempt to go to profile page - errors on console:
+3. attempt to go to profile page - stays on the same page, with no errors on the console or the main page. 
 
-```
-ReferenceError: C:\Users\Kevin Kohls\BlocProjects\bloccit\src\views\users\show.ejs:67
-```
-<% const favorite = post.getFavoriteFor(currentUser.id) %>
-<% if (favorite) { %>
-```
-    65|
-    66|                 <!-- #4 -->
- >> 67|                 <% if(favorites) { %>
-    68|                 <% favorites.forEach((favorite) => { %>
-    69|
-    70|                 <!-- #5 -->
+Any manual attempt fails as well. 
 
-favorites is not defined
-```
 
 **Latest debug steps**
 
-Since favorites is not defined, we can look at the last place it has been defined successly - in `favorites\favoriting.ejs`. Here we see this .ejs:
+The latest debug centered around working in src/db/queries.users.js, and moving the favorites location and cleaning it up as a function. 
 
-```
-<% const favorite = post.getFavoriteFor(currentUser.id) %>
-<% if (favorite) { %>
-```
+I last worked with Jason Carpenter. His last feedback: 
 
-We have tried several ways to move this definition into one of the files that will allow it to work, including the `\show.ejs\ file and other user and post files.  We have not found one that works at this time.
+So I pulled your latest changes to run your app and test it on my machine. And in creating your databases locally, I was able to run the migrations but not the seeds. It looks like your seeds is trying to use the `faker` npm package, but that is not listed in the package.json file so it doesn't get installed as a dependency.
 
-**END OF DEBUG** as of 3/8/2019 at 4:56 PM
+I am not sure what to do about that feedback. 
+
+
+
+**END OF DEBUG** as of 3/8/2019 24 hours ago
 
 Latest Push to GitHub at about 3PM: https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2

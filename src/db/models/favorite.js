@@ -5,10 +5,17 @@ module.exports = (sequelize, DataTypes) => {
         postId: DataTypes.INTEGER
     }, {});
     Favorite.associate = function (models) {
-        // associations can be defined here
 
         Favorite.addScope("lastFiveFor", (userId) => {
+            Favorite.belongsTo(models.Post, {
+                foreignKey: "postId",
+                onDelete: "CASCADE"
+            });
 
+            Favorite.belongsTo(models.User, {
+                foreignKey: "userId",
+                onDelete: "CASCADE"
+            });
 
             return {
                 include: [{
