@@ -55,7 +55,7 @@ module.exports = {
     show(req, res, next) {
 
         topicQueries.getTopic(req.params.id, (err, topic) => {
-
+console.log(err);
             if (err || topic == null) {
                 res.redirect(404, "/");
             } else {

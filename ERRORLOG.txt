@@ -8,19 +8,28 @@ Add a list of posts that have been marked as favorites by the user, similar to c
 Link for assignment: https://www.bloc.io/users/kevin-kohls/checkpoints/3008?section_id=386
 
 Status - 3/12/19
-* "Nuclear Option" employeed - all previous options of PSQ on windows deleted and a version was reinstalled. 
-* Have added admin using psql
-* Have added all dbs
-* Have used faker to add successfully add topics with desciptions. 
+
+Process basics working - Will need to do further tesing by adding more data, verifying tests, and checking profile functions
+
+Will need to go back and correct one assignment problem.
+
+
+All problems below solved. 
+* "Nuclear Option" employeed - all previous versions of postgreSQL on Windows 10 deleted and a version was reinstalled. 
 
 Current Problem
-* Unable to add Posts - <a> for a title does not lead to a page with a desciption, but to a `redirect to /`
+* Unable to render a single Topic page - <a> for a title does not lead to a page with a desciption, but displays `Not Found. Redirecting to /` on the Browser page. I am logged in as "Admin", not "Member"
 
-Debug
+* Manual attempt fails as well. 
+
+Debug Resolution
 * Step through from <a> through render to see where there is a failure -- Note, this error did not exist before the communication error and subsequent "nuclear option"
 
+Worked with Michael Davis to solve the problem of the UserId column missing from the Post db. Creted a migration file and add column. Beginning testing of solution. 
 
-Latest Push to GitHub at  11:30 on 3/14/2019 https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
+
+
+Latest Push to GitHub at  2:45 PM on 3/14/2019 https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
 
 
 
