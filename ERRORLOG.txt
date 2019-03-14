@@ -7,27 +7,78 @@ Add a list of posts that have been marked as favorites by the user, similar to c
 
 Link for assignment: https://www.bloc.io/users/kevin-kohls/checkpoints/3008?section_id=386
 
+Status - 3/12/19
+* "Nuclear Option" employeed - all previous options of PSQ on windows deleted and a version was reinstalled. 
+* Have added admin using psql
+* Have added all dbs
+* Have used faker to add successfully add topics with desciptions. 
+
+Current Problem
+* Unable to add Posts - <a> for a title does not lead to a page with a desciption, but to a `redirect to /`
+
+Debug
+* Step through from <a> through render to see where there is a failure -- Note, this error did not exist before the communication error and subsequent "nuclear option"
+
+
+Latest Push to GitHub at  11:30 on 3/14/2019 https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
+
+
+
+
+PAST HISTORY is below:
 
 Currents Steps to get to problem
 1. npm start - runs normally
-2. sign in as admin - runs normally
-3. attempt to go to profile page - stays on the same page, with no errors on the console or the main page. 
+2. sign in (as admin or any other user) - program generates the errors below, and the following appears on the console. There are no errors on the web browser, and the app continues to parially run. You can get to every screen except Topics, including the sign in screen again. But any attempt to sign in creates the same errors below:
 
-Any manual attempt fails as well. 
+```
+> bloccit@1.0.0 start C:\Users\Kevin Kohls\BlocProjects\bloccit
+> node src/server.js
+
+server is listening for requests on port 3000
+Unhandled rejection SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+    at connection.connect.err (C:\Users\Kevin Kohls\BlocProjects\bloccit\node_modules\sequelize\lib\dialects\postgres\connection-manager.js:116:24)
+    at Connection.connectingErrorHandler (C:\Users\Kevin Kohls\BlocProjects\bloccit\node_modules\pg\lib\client.js:140:14)
+    at Connection.emit (events.js:189:13)
+    at Socket.reportStreamError (C:\Users\Kevin Kohls\BlocProjects\bloccit\node_modules\pg\lib\connection.js:71:10)
+    at Socket.emit (events.js:189:13)
+    at emitErrorNT (internal/streams/destroy.js:82:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    
+```    
+
+This error is assumed to be an inability to launch postgres or connect through the seriver. 
+
+There is a window admin for postgres on my computer. I can use it to connect or refresh the connection to postgres, and it accepts the password and appears to work, but any attempt to login is rejected. Any browser screens that attempt to access the db fail as well. Those that do not are find. 
+
+**Latest debug steps  I have spend days working with many mentors and my own mentor drying to solve this problem. We have made some progress, but have failed to make the ultimate connection to this db. **
+
+- We have done every version of pg_ctl I think exists;
+- postgres -D /usr/local/pgsql/data
+- pg_ctl -D /usr/local/var/postgres[VERSION NUMBER HERE] start
+-  su postgres -p 5432  
+
+I have pushed the latest version to GitHub -- the link is below.
+
+I am left with a nuclear option that probably consists of adding another Server (or attempting to delete the server that I cannot get to) and recreating all of the datbases, which is certain to be a difficult process full of nasty, time-consuming problems. My mentor, Cory Trimm, would like to understand this problem better before we take that action. Here is feedback to the slack mentors:
+
+Cory Trimm: Hey all, so just add some of my opinion based on the session I had with Kevin.
+
+There are a handful of matters that need to be addressed.
+1. He has 3 different installs of Postgres in 3 different folders.
+2. For some reason there is no `data` directory inside of each of those Postgres installs (so, maybe there is no data in his DBs or no migrations were run?)
+3. I'd prefer not to blow away the database and recreate it since we're unsure as to what the actual issue at hand is.
+
+This is some speculation on my part and difficult for me to help debug since I haven't touched a Windows machine in 10+ years.
 
 
-**Latest debug steps**
+I will note that previous install problems had let to first installing version 11.1 for PostgreSQL, and then having an "a" and "b" version that used version 10. Version 11.1 in the original PostresSQL is the one that is being used, I believe, but I admit to some confusion on my part. 
 
-The latest debug centered around working in src/db/queries.users.js, and moving the favorites location and cleaning it up as a function. 
-
-I last worked with Jason Carpenter. His last feedback: 
-
-So I pulled your latest changes to run your app and test it on my machine. And in creating your databases locally, I was able to run the migrations but not the seeds. It looks like your seeds is trying to use the `faker` npm package, but that is not listed in the package.json file so it doesn't get installed as a dependency.
-
-I am not sure what to do about that feedback. 
+If we can figure this out in a day or two, or this is not a issue that impacts my progress, I am all for figuring it out. I lost 3 days previously on postgres issues. 
 
 
 
-**END OF DEBUG** as of 3/8/2019 24 hours ago
+**END OF DEBUG** as of 3/11/2019 14 hours ago
 
 Latest Push to GitHub at about 3PM: https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
