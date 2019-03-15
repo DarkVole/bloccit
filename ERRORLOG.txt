@@ -7,12 +7,27 @@ Add a list of posts that have been marked as favorites by the user, similar to c
 
 Link for assignment: https://www.bloc.io/users/kevin-kohls/checkpoints/3008?section_id=386
 
-Status - 3/12/19
+Status - 3/14/19
 
 Process basics working - Will need to do further tesing by adding more data, verifying tests, and checking profile functions
 
+(Solved) All functions in running App appear to be function
+- 67 of 74 spec fail, not allowing me to submit test. 
+    - This be resolved before creating new testing code. 
+        - The error appears to be caused by a lack of bloccit-test. 
+            - Used pgAdmin to create bloccit-env db and reran - all 74 tests pass
+            
+** PUSH and SUBMIT on 3/15 at 1:30 PM
+
 Will need to go back and correct one assignment problem.
 
+
+
+Latest Push to GitHub at  2:45 PM on 3/14/2019 https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
+
+
+
+PAST HISTORY is below:
 
 All problems below solved. 
 * "Nuclear Option" employeed - all previous versions of postgreSQL on Windows 10 deleted and a version was reinstalled. 
@@ -27,14 +42,6 @@ Debug Resolution
 
 Worked with Michael Davis to solve the problem of the UserId column missing from the Post db. Creted a migration file and add column. Beginning testing of solution. 
 
-
-
-Latest Push to GitHub at  2:45 PM on 3/14/2019 https://github.com/DarkVole/bloccit/tree/BlocProfilesAssignment2
-
-
-
-
-PAST HISTORY is below:
 
 Currents Steps to get to problem
 1. npm start - runs normally
