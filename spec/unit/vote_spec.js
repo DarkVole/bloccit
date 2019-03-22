@@ -289,24 +289,24 @@ describe("Vote", () => {
     
         describe("#getDownVote()", () => {
 
-        it("should return that a up vote exits", (done) => {
-            Vote.create({
-                    value: -11,
-                    userId: this.user.id,
-                    postId: this.post.id
-                })
-                .then((vote) => {
-                    expect(vote.value).toBe(-11)
-                    done();
-                })
+            it("should return that a up vote exits", (done) => {
+                Vote.create({
+                        value: -1,
+                        userId: this.user.id,
+                        postId: this.post.id
+                    })
+                    .then((vote) => {
+                        expect(this.post.hasDownvoteFor(this.user.id)).toBe(true)
+                        done();
+                    })
 
-            .catch((err) => {
-                console.log(err);
-                done();
+                    .catch((err) => {
+                        console.log(err);
+                        done();
+                    });
             });
-        });
 
-    });
+        });
 
 
 });
