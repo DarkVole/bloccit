@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 <head>
     <% include ../static/partials/head.ejs %>
 </head>
@@ -38,11 +38,11 @@
         
                 <!-- Validate up or down vote below -->
         <% if (currentUser) {if(post.hasDownvoteFor(currentUser.id)) { %>
-        Has an Down Vote
+        <i class="em-svg em--1"></i>
         <% }} %>
 
         <% if (currentUser) {if(post.hasUpvoteFor(currentUser.id)) { %>
-        Has an Up Vote
+        <i class="em-svg em---1"></i>
         <% }} %>
 
 

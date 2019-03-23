@@ -274,46 +274,58 @@ describe("Vote", () => {
                     userId: this.user.id,
                     postId: this.post.id
                 })
-                .then((vote) => {
-                    expect(vote.value).toBe(1)
-                    done();
+                .then(vote => {
+                    Post.findOne({
+                            where: {
+                                id: vote.postId
+                            },
+                            include: [{
+                                model: Vote,
+                                as: "votes"
+    }]
+                        })
+                        .then(post => {
+                            expect(post.hasUpvoteFor(this.user.id)).toBe(true);
+                            done();
+                        })
+
+                        .catch((err) => {
+                            console.log(err);
+                            done();
+                        });
                 })
-
-                .catch((err) => {
-                    console.log(err);
-                    done();
-                });
         });
-
     });
 
     describe("#getDownVote()", () => {
 
-        it("should return that a up vote exits", (done) => {
+        it("should return that a down vote exits", (done) => {
             Vote.create({
                     value: -1,
                     userId: this.user.id,
                     postId: this.post.id
                 })
-                .then((vote) => {
-                    console.log("DEBUG: #getDownVote Spec");
-                    console.log("--Vote Object:");
-                    console.log(vote);
-                    console.log("\n\n");
-                    console.log("--Post Object:");
-                    console.log(this.post);
-                    console.log("----------------\n\n");
-                    expect(this.post.hasDownvoteFor(this.user.id)).toBe(true);
-                    done();
+                .then(vote => {
+                    Post.findOne({
+                            where: {
+                                id: vote.postId
+                            },
+                            include: [{
+                                model: Vote,
+                                as: "votes"
+    }]
+                        })
+                        .then(post => {
+                            expect(post.hasDownvoteFor(this.user.id)).toBe(true);
+                            done();
+                        })
+
+                        .catch((err) => {
+                            console.log(err);
+                            done();
+                        });
                 })
-
-                .catch((err) => {
-                    console.log(err);
-                    done();
-                });
         });
-
     });
-
 
 });
