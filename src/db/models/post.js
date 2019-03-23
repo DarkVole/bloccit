@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "votes"
         });
 
-    }
+    };
     Post.prototype.getPoints = function () {
 
         // #1
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     Post.prototype.hasUpvoteFor = function (userId) {
         for (let j = 0; j <= this.votes.length; j++) {
             //console.log("Vote Value: " + this.votes[j].value + " User Id: " + this.votes[j].userId + " Post Id " + this.votes[j].postId + " Entered Id " + usersID)
-            if (this.votes[j].value === 1 && this.votes[j].userId === usersID) {
+            if (this.votes[j].value === 1 && this.votes[j].userId === usersId) {
                 testResult = true
                 break;
             };
