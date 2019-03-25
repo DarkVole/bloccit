@@ -32,7 +32,61 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "postId",
             as: "comments"
         });
+        Post.hasMany(models.Vote, {
+            foreignKey: "postId",
+            as: "votes"
+        });
+
+    }
+    Post.prototype.getPoints = function () {
+
+        // #1
+        if (this.votes.length === 0) return 0
+
+        // #2  This is a question for a mentor or Cory
+        return this.votes
+            .map((v) => {
+                return v.value
+            })
+            .reduce((prev, next) => {
+                return prev + next
+            });
+    };
+
+    Post.prototype.hasUpvoteFor = function (userId) {
+
+
+        let x = this.votes.length - 1;
+        let j = 0;
+        for (j = 0; j <= x; j++) {
+
+            if (this.votes[j].value === 1 && this.votes[j].userId === userId) {
+                return true
+                break;
+            };
+        }
+        return false;
 
     };
+
+
+
+    // Post.prototype.hasDownvoteFor = function (usersID) {
+
+    Post.prototype.hasDownvoteFor = function (userId) {
+        let x = this.votes.length - 1;
+        let j = 0;
+        for (j = 0; j <= x; j++) {
+
+            if (this.votes[j].value === -1 && this.votes[j].userId === userId) {
+                return true
+                break;
+            };
+        }
+        return false;
+
+    };
+
+
     return Post;
 };

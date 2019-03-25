@@ -1,9 +1,12 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-    var Comment = sequelize.define('Comment', {
-        body: {
-            type: DataTypes.STRING,
+    var Vote = sequelize.define("Vote", {
+        value: {
+            type: DataTypes.INTEGER,
             allowNull: false
+            //validate: {
+            //    isIn: [[-1, 1]]
+            //}
         },
         postId: {
             type: DataTypes.INTEGER,
@@ -14,18 +17,17 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     }, {});
-    Comment.associate = function (models) {
-
-        Comment.belongsTo(models.Post, {
+    Vote.associate = function (models) {
+        // associations can be defined here
+        Vote.belongsTo(models.Post, {
             foreignKey: "postId",
             onDelete: "CASCADE"
         });
 
-        Comment.belongsTo(models.User, {
+        Vote.belongsTo(models.User, {
             foreignKey: "userId",
             onDelete: "CASCADE"
         });
-
     };
-    return Comment;
+    return Vote;
 };

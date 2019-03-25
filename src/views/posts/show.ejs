@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 <head>
     <% include ../static/partials/head.ejs %>
 </head>
@@ -9,10 +9,21 @@
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-        <h1>
-            <%= post.title %>
-        </h1>
 
+        <!-- Validate the statement below -->
+
+
+        <div style="display: flex; align-items:center;">
+            <% if(currentUser) { %>
+            <% include ../votes/voting.ejs %>
+
+            <% } %>
+            <h1>
+                <%= post.title %>
+
+
+            </h1>
+        </div>
         <% if(currentUser && (currentUser.id === post.userId || currentUser.isAdmin())) { %>
 
 
@@ -24,6 +35,17 @@
         </form>
 
         <% } %>
+        
+                <!-- Validate up or down vote below -->
+        <% if (currentUser) {if(post.hasDownvoteFor(currentUser.id)) { %>
+        <i class="em-svg em--1"></i>
+        <% }} %>
+
+        <% if (currentUser) {if(post.hasUpvoteFor(currentUser.id)) { %>
+        <i class="em-svg em---1"></i>
+        <% }} %>
+
+
         <p>
             <%= post.body %>
         </p>

@@ -1,12 +1,49 @@
+kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm test
+
+> bloccit@1.0.0 test /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
+> export NODE_ENV=test && jasmine
+
+Started
+server is listening for requests on port 3000
+.sequelize deprecated Model.all has been deprecated, please use Model.findAll instead node_modules/sequelize/lib/model.js:4228:9
+sequelize deprecated Model.findById has been deprecated, please use Model.findByPk instead node_modules/sequelize/lib/model.js:4208:9
+.....................FFPromise {
+  _bitField: 0,
+  _fulfillmentHandler0: undefined,
+  _rejectionHandler0: undefined,
+  _promise0: undefined,
+  _receiver0: undefined }
+F................null
+................................
 
 Failures:
-1) routes : users POST /users should create a new user with valid values and redirect
+1) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
   Message:
-    Expected null not to be null.
+    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
   Stack:
-    Error: Expected null not to be null.
+    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
         at <Jasmine>
-        at User.findOne.then (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/users_spec.js:59:46)
+        at ontimeout (timers.js:482:11)
+        at tryOnTimeout (timers.js:317:5)
+        at Timer.listOnTimeout (timers.js:277:5)
+
+2) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
+  Message:
+    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
+  Stack:
+    Error: Timeout - Async callback was not invoked within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
+        at <Jasmine>
+        at ontimeout (timers.js:482:11)
+        at tryOnTimeout (timers.js:317:5)
+        at Timer.listOnTimeout (timers.js:277:5)
+
+3) routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id should validate an up vote
+  Message:
+    Expected 0 to be 1.
+  Stack:
+    Error: Expected 0 to be 1.
+        at <Jasmine>
+        at Vote.count.then (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:533:46)
         at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
         at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
         at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
@@ -20,73 +57,97 @@ Failures:
         at tryOnImmediate (timers.js:752:5)
         at processImmediate [as _immediateCallback] (timers.js:729:5)
 
-27 specs, 1 failure
-Finished in 5.364 seconds
+Suite error: routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id
+  Message:
+    TypeError: Cannot read property 'id' of undefined
+  Stack:
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:462:51)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:456:13)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:224:13)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:81:9)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:66:5)
+        at <Jasmine>
+        at Object.<anonymous> (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:11:1)
+        at Module._compile (module.js:652:30)
+
+Suite error: routes : posts Show for Post using Member role - new and create - CRUD GET /topics/:topicId/posts/new POST /topics/:topicId/posts/:id/destroy GET /topics/:topicId/posts/:id
+  Message:
+    TypeError: Cannot read property 'id' of undefined
+  Stack:
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:496:51)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:484:13)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:224:13)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:81:9)
+        at <Jasmine>
+        at Suite.describe (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:66:5)
+        at <Jasmine>
+        at Object.<anonymous> (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/spec/integration/posts_spec.js:11:1)
+        at Module._compile (module.js:652:30)
+
+73 specs, 5 failures
+Finished in 27.445 seconds
 npm ERR! Test failed.  See above for more details.
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm start
-
-> bloccit@1.0.0 start /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
-> node src/server.js
-
-server is listening for requests on port 3000
-^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm start
-
-> bloccit@1.0.0 start /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
-> node src/server.js
-
-server is listening for requests on port 3000
-
-
-Unhandled rejection SequelizeDatabaseError: relation "Users" does not exist
-    at Query.formatError (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/sequelize/lib/dialects/postgres/query.js:363:16)
-    at query.catch.err (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/sequelize/lib/dialects/postgres/query.js:86:18)
-    at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
-    at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
-    at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
-    at Promise._settlePromise0 (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:614:10)
-    at Promise._settlePromises (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:690:18)
-    at _drainQueueStep (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:138:12)
-    at _drainQueue (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:131:9)
-    at Async._drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:147:5)
-    at Immediate.Async.drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:17:14)
-    at runCallback (timers.js:794:20)
-    at tryOnImmediate (timers.js:752:5)
-    at processImmediate [as _immediateCallback] (timers.js:729:5)
-
-Unhandled rejection SequelizeDatabaseError: relation "Users" does not exist
-    at Query.formatError (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/sequelize/lib/dialects/postgres/query.js:363:16)
-    at query.catch.err (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/sequelize/lib/dialects/postgres/query.js:86:18)
-    at tryCatcher (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/util.js:16:23)
-    at Promise._settlePromiseFromHandler (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:512:31)
-    at Promise._settlePromise (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:569:18)
-    at Promise._settlePromise0 (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:614:10)
-    at Promise._settlePromises (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/promise.js:690:18)
-    at _drainQueueStep (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:138:12)
-    at _drainQueue (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:131:9)
-    at Async._drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:147:5)
-    at Immediate.Async.drainQueues (/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit/node_modules/bluebird/js/release/async.js:17:14)
-    at runCallback (timers.js:794:20)
-    at tryOnImmediate (timers.js:752:5)
-    at processImmediate [as _immediateCallback] (timers.js:729:5)
-
-^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ ^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ ^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm start
-
-> bloccit@1.0.0 start /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
-> node src/server.js
-
-server is listening for requests on port 3000
-^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ ^C
-kevinakohls@DESKTOP-R10POV0:/mnt/c/Users/Kevin Kohls/BlocProjects/bloccit$ npm start
-
-> bloccit@1.0.0 start /mnt/c/Users/Kevin Kohls/BlocProjects/bloccit
-> node src/server.js
-
-server is listening for requests on port 3000
 
 
 
+
+
+
+
+
+
+
+
+
+
+// IGNORE - SAVED CODE 
+
+       /*
+                    describe("GET /topics/:topicId/posts/:id", () => {
+
+                        it("should validate mutiple votes", (done) => {
+                            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+
+                                Vote.create({
+                                    value: 1,
+                                    userId: this.user.id + 1,
+                                    postId: this.post.id
+
+                                })
+                                expect(post.votes[2].value).toBe(1);
+
+                                done();
+                            });
+                        });
+
+                    });
+
+                    describe("GET /topics/:topicId/posts/:id", () => {
+
+                        it("should validate a down vote", (done) => {
+                            request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+
+                                Vote.create({
+                                    value: -1,
+                                    userId: this.user.id,
+                                    postId: this.post.id
+
+                                })
+                                expect(post.body).toContain("Has an Down Vote");
+                                expect(post.votes[3].value).toBe(-1);
+
+                                done();
+                            });
+                        });
+
+                    });
+        */

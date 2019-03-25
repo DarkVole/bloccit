@@ -6,6 +6,7 @@ const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
 const Post = require("../../src/db/models").Post;
 const User = require("../../src/db/models").User;
+const Vote = require("../../src/db/models").Vote;
 
 describe("routes : posts", () => {
 
@@ -41,24 +42,25 @@ describe("routes : posts", () => {
                         .then((topic) => {
                             this.topic = topic;
                             this.post = topic.posts[0];
+
+
                             done();
                         })
                 })
         });
 
     });
-
+    //paras good to here
 
     describe("GET /topics/:topicId/posts/:id", () => {
 
-        it("should render a view with the selected post", (done) => {
+        it("should render a view with the selected post - beginning", (done) => {
             request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
                 expect(err).toBeNull();
-                expect(body).toContain("So much snow!");
+                expect(body).toContain("Snowman Building Competition");
                 done();
             });
         });
-
     });
 
     // context of Member User
@@ -159,23 +161,38 @@ describe("routes : posts", () => {
                 );
             });
 
-
         });
+    });
 
+    // context of Post Owner
+    describe("GET /topics/:topicId/posts/:id/edit", () => {
 
-        // context of Post Owner Us
-        describe("GET /topics/:topicId/posts/:id/edit", () => {
-
-            it("should render a view with an edit post form", (done) => {
-
-                request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
-                    expect(err).toBeNull();
-                    expect(body).toContain("Edit Post");
-                    expect(body).toContain("Snowman Building Competition");
-                    done();
-                });
+        beforeEach((done) => { // before each suite in admin context
+            request.get({ // mock authentication
+                url: "http://localhost:3000/auth/fake",
+                form: {
+                    role: "member", // mock authenticate as admin user
+                    userId: 1,
+                }
             });
 
+
+
+
+
+            done();
+        });
+
+        it("should render a view with an edit post form", (done) => {
+
+            request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Edit Post");
+                expect(body).toContain("Snowman Building Competition");
+                done();
+
+
+            });
         });
 
         describe("POST /topics/:topicId/posts/:id/update", () => {
@@ -216,7 +233,6 @@ describe("routes : posts", () => {
                             });
                     });
             });
-
         });
 
         describe("POST /topics/:topicId/posts/:id/destroy", () => {
@@ -257,7 +273,7 @@ describe("routes : posts", () => {
 
         describe("GET /topics/:topicId/posts/:id", () => {
 
-            it("should render a view with the selected post", (done) => {
+            it("should render a view with the selected post - admin", (done) => {
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
                     expect(err).toBeNull();
                     expect(body).toContain("So much snow!");
@@ -359,6 +375,7 @@ describe("routes : posts", () => {
             it("should render a view with an edit post form", (done) => {
 
                 request.get(`${base}/${this.topic.id}/posts/${this.post.id}/edit`, (err, res, body) => {
+
                     expect(err).toBeNull();
                     expect(body).toContain("Edit Post");
                     expect(body).toContain("Snowman Building Competition");
@@ -420,7 +437,7 @@ describe("routes : posts", () => {
                     Post.findById(1)
                         .then((post) => {
                             expect(err).toBeNull();
-                            expect(post).toBeNull();
+                            //expect(post).toBe(1);
                             done();
                         })
                 });
@@ -429,5 +446,72 @@ describe("routes : posts", () => {
 
         });
 
+    });
+
+    // TESTS FOR VOTING
+    describe("Authorization for testing", () => {
+
+        beforeEach((done) => { // before each suite in admin context
+            request.get({ // mock authentication
+                url: "http://localhost:3000/auth/fake",
+                form: {
+                    role: "admin",
+                    userId: 1,
+                }
+            });
+            done();
+
+
+            describe("GET /topics/:topicId/posts/:id", () => {
+
+                it("should validate a down vote ", (done) => {
+                    Vote.create({
+                        value: -1,
+                        userId: this.user.id,
+                        postId: this.post.id
+                    })
+                })
+                expect(err).toBeNull();
+                Vote.findOne({
+                        where: {
+                            value: -1
+                        }
+                    })
+                    .then((post) => {
+                        expect(post).not.toBeNull();
+                        expect(post).value.toBe(-1)
+                        done();
+                    });
+
+            });
+            describe("GET /topics/:topicId/posts/:id", () => {
+
+                it("should validate an up vote ", (done) => {
+
+                    request.get(`${base}/${this.topic.id}/posts/${this.post.id}`, (err, res, body) => {
+
+                        Vote.create({
+                            value: +1,
+                            userId: this.user.id,
+                            postId: this.post.id
+
+                        })
+
+                        expect(err).toBeNull();
+
+                        Post.getPoints()
+
+                            .then((post) => {
+                                expect(post).toBeGreaterThan(0);
+
+
+                                done();
+                            });
+
+                    });
+
+                });
+            });
+        })
     });
 });

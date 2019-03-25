@@ -3,10 +3,12 @@ const Topic = require("./models").Topic;
 const Authorizer = require("../policies/post");
 const Comment = require("./models").Comment;
 const User = require("./models").User;
+const Vote = require("./models").Vote;
 
 module.exports = {
 
     getPost(id, callback) {
+        // console.log(post.id.title);
 
         return Post.findById(id, {
                 include: [
@@ -16,18 +18,28 @@ module.exports = {
                         include: [
                             {
                                 model: User
-                            }
+                            },
+
          ]
+                    },
+                    {
+                        model: Vote,
+                        as: "votes",
+
                     }
        ]
+
             })
 
             .then((post) => {
                 callback(null, post);
+                //console.log(post.votes.length);
             })
+
             .catch((err) => {
                 callback(err);
             })
+
     },
 
     addPost(newPost, callback) {
@@ -94,5 +106,47 @@ module.exports = {
             .catch((err) => {
                 callback(err);
             });
-    }
+    },
+
+
+
+    hasUpvoteFor(selectedUser) {
+
+        let totalVotes = post.votes.length;
+        //console.log(post.votes.length);
+        let result = false;
+
+        for (i = 0; i < totalVotes - 1; i++) {
+
+            if (post.votes[i].userId == selectedUser) {
+                if (post.votes[i].value = 1) {
+                    result = true
+                    break;
+                }
+            }
+        }
+
+        return result;
+    },
+
+
+    hasDownvoteFor(selectedUser) {
+
+        let totalVotes = post.votes.length;
+        //console.log(post.votes.length);
+        let result = false;
+
+        for (i = 0; i < totalVotes - 1; i++) {
+
+            if (post.votes[i].userId == selectedUser) {
+                if (post.votes[i].value = -1) {
+                    result = true
+                    break;
+                }
+            }
+        }
+
+        return result;
+    },
+
 }
