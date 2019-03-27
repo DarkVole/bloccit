@@ -1,28 +1,35 @@
 {
-  "name": "bloccit",
-  "version": "1.0.0",
-  "description": "A Reddit-like application for users to dicuss and share content entry point: (src/server.js)",
-  "main": "index.js",
-  "scripts": {
-    "test": "export NODE_ENV=test && jasmine",
-    "start": "node src/server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.2",
-    "dotenv": "^5.0.0",
-    "ejs": "^2.5.7",
-    "express": "^4.16.4",
-    "express-flash": "0.0.2",
-    "express-session": "^1.15.6",
-    "express-validator": "^5.0.2",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "pg": "^7.4.1",
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^4.32.6",
-    "sequelize-cli": "^5.4.0"
-  }
+    "name": "bloccit",
+    "version": "1.0.0",
+    "description": "A Reddit-like application for users to dicuss and share content entry point: (src/server.js)",
+    "main": "index.js",
+    "scripts": {
+        "test": "export NODE_ENV=test && jasmine",
+        "start": "node src/server.js",
+        "sql:migrate:undo": "npm run sql db:migrate:undo:all",
+        "sql:migrate": "npm run sql db:migrate",
+        "sql:seed:undo": "npm run sql db:seed:undo:all",
+        "sql:seed": "npm run sql db:seed:all",
+        "sql:s": "npm run sql:migrate:undo && npm run sql:migrate && npm run sql:seed",
+        "sql": "./node_modules/sequelize-cli/lib/sequelize",
+        "sqlize:s": "sequelize db:migrate:undo && db:migrate && db:seed:all"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.2",
+        "dotenv": "^5.0.0",
+        "ejs": "^2.5.7",
+        "express": "^4.16.4",
+        "express-flash": "0.0.2",
+        "express-session": "^1.15.6",
+        "express-validator": "^5.0.2",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "pg": "^7.4.1",
+        "pg-hstore": "^2.3.2",
+        "sequelize": "^4.32.6",
+        "sequelize-cli": "^5.4.0"
+    }
 }
