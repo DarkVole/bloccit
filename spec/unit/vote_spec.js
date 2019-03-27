@@ -266,5 +266,65 @@ describe("Vote", () => {
 
     });
 
+    describe("#getUpVote()", () => {
 
+        it("should return that a up vote exits", (done) => {
+            Vote.create({
+                    value: 1,
+                    userId: this.user.id,
+                    postId: this.post.id
+                })
+                .then(vote => {
+                    Post.findOne({
+                            where: {
+                                id: vote.postId
+                            },
+                            include: [{
+                                model: Vote,
+                                as: "votes"
+    }]
+                        })
+                        .then(post => {
+                            expect(post.hasUpvoteFor(this.user.id)).toBe(true);
+                            done();
+                        })
+
+                        .catch((err) => {
+                            console.log(err);
+                            done();
+                        });
+                })
+        });
+    });
+
+    describe("#getDownVote()", () => {
+
+        it("should return that a down vote exits", (done) => {
+            Vote.create({
+                    value: -1,
+                    userId: this.user.id,
+                    postId: this.post.id
+                })
+                .then(vote => {
+                    Post.findOne({
+                            where: {
+                                id: vote.postId
+                            },
+                            include: [{
+                                model: Vote,
+                                as: "votes"
+    }]
+                        })
+                        .then(post => {
+                            expect(post.hasDownvoteFor(this.user.id)).toBe(true);
+                            done();
+                        })
+
+                        .catch((err) => {
+                            console.log(err);
+                            done();
+                        });
+                })
+        });
+    });
 });

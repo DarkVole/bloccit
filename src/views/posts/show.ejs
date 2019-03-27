@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 <head>
     <% include ../static/partials/head.ejs %>
@@ -40,6 +41,15 @@
         <% if(currentUser) { %>
         <% include ../favorites/favoriting.ejs %>
         <% } %>
+
+        <% if (currentUser) {if(post.hasDownvoteFor(currentUser.id)) { %>
+        <i class="em-svg em--1"></i>
+        <% }} %>
+
+        <% if (currentUser) {if(post.hasUpvoteFor(currentUser.id)) { %>
+        <i class="em-svg em---1"></i>
+        <% }} %>
+
         <p>
             <%= post.body %>
         </p>
