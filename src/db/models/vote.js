@@ -3,10 +3,10 @@ module.exports = (sequelize, DataTypes) => {
     var Vote = sequelize.define("Vote", {
         value: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                isIn: [[-1, 1]]
-            }
+            allowNull: false
+            //validate: {
+            //    isIn: [[-1, 1]]
+            //}
         },
         postId: {
             type: DataTypes.INTEGER,

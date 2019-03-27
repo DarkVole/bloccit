@@ -63,6 +63,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "votes"
         });
 
+
         Post.prototype.getPoints = function () {
 
             // #1
@@ -117,5 +118,6 @@ module.exports = (sequelize, DataTypes) => {
         };
 
     }
+
     return Post;
 };
