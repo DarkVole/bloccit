@@ -55,7 +55,8 @@ module.exports = {
     show(req, res, next) {
 
         topicQueries.getTopic(req.params.id, (err, topic) => {
-console.log("DEBUG: topicControll parms.id" + req.params.id, topic)
+            console.log("DEBUG: topicController req.parms.id: " + req.params.id)
+            console.log("DEBUG: topicController.js topic: " + topic)
             if (err || topic == null) {
                 res.redirect(404, "/");
             } else {

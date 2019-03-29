@@ -30,7 +30,7 @@ module.exports = {
     },
 
     getTopic(id, callback) {
-        console.log("topic.js " + id)
+        console.log("DEBUG: queries.topic.js id: " + id)
         return Topic.findById(id, {
 
                 include: [{
