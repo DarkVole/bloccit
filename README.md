@@ -5,6 +5,12 @@ Project is in Development Phase - some files and commands are included for debug
 Bloccit is a Project within the Bloc Web Development Platform.  At present, it runs on the heroku production environment at:
 https://darkvole-bloccit.herokuapp.com/
 
+## Current Status
+
+The current status of this project is in the following Gist: 
+
+https://gist.github.com/DarkVole/79ba76eca81f9df5a21576b97b38c417
+
 ## Introduction
 
 ### Overview and Purpose
