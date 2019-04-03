@@ -11,6 +11,10 @@ The current status of this project is in the following Gist:
 
 https://gist.github.com/DarkVole/79ba76eca81f9df5a21576b97b38c417
 
+## Feature Management and Version Control is handled in Trello:
+
+https://trello.com/b/9kFnCLCi/bloccit
+
 ## Introduction
 
 ### Overview and Purpose
