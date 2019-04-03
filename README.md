@@ -19,22 +19,22 @@ https://trello.com/b/9kFnCLCi/bloccit
 
 ### Overview and Purpose
 
-This checkpoint lays out the user stories and acceptance criteria you will use while building Bloccit: an application where users can create topics, posts, and comments as well as vote and favorite posts.
+Bloccit is an application where users can create topics, posts, and comments as well as vote and favorite posts.
 
 ### Objectives
 
-After this checkpoint, you should be able to:
+Key aspects for this project:
 
-* Understand the user stories and acceptance criteria for this project.
-* Explain MVC.
-* Discuss the principle of separation of concerns.
+* Apply user stories and acceptance criteria for a project.
+* Apply Model-View-Controller Pattern (MVC)
+* Use Node.js and Postgres and SQL databases
 
-### Getting Started
+### Introduction
 
-During this section of the roadmap, you will build and deploy a Reddit-like web application we affectionately call Bloccit. Bloccit will have many features such as authentication, authorization, creating topics, posts, comments, favoriting, and voting amongst others. This checkpoint will cover foundational concepts and define the user stories that will guide the rest of this project.
+Bloccit contains features such as authentication, authorization, creating topics, posts, comments, favoriting, and voting amongst others. 
 
 ### The Model-View-Controller Pattern (MVC)
-As we've seen before, the MVC pattern allows for your application to have a separation of concerns, allowing specific sections of your application to be in charge of specific functionality.
+The MVC pattern allows for this application to have a separation of concerns, allowing specific sections of the application to be in charge of specific functionality.
 
 ### Model
 The Model consists of the data structures needed to store information and the methods used to interface with the data layer of the application.
@@ -48,7 +48,7 @@ The Controller handles incoming requests from the client. It will interact with 
 ### User Stories and Acceptance Criteria
 We will implement the following user stories for Bloccit:
 
-User Story: As a user, I want to know the name and purpose of this site so that I can decide whether I want to continue interacting with it.
+As a user, I want to know the name and purpose of this site so that I can decide whether I want to continue interacting with it.
 
 #### Acceptance Criteria:
 
